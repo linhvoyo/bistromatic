@@ -6,13 +6,11 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/10 15:14:09 by linh             ###   ########.fr       */
+/*   Updated: 2018/01/10 15:49:21 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "bistromatic.h"
-#include <stdlib.h>
 
 char *pad_left(char *s1, int n)
 {
