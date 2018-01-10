@@ -6,12 +6,19 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 09:25:16 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 11:22:56 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/10 11:28:42 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+
+/*	zeroed
+**	2018-01-10 11-26-31
+**	Works.
+**	"0005" --> 0
+**	"0000" --> 1
+*/
 
 int zeroed(char *str)
 {
@@ -23,6 +30,16 @@ int zeroed(char *str)
 	}
 	return (1);
 }
+
+/*	get_rightmost_digit
+**	2018-01-10 11-25-48	
+**	Works.
+**	555 --> 5
+**	554 --> 4
+**	5 --> 5
+**	0 --> 0
+**	"<Empty string>" --> 0
+*/
 
 int get_rightmost_digit(char *str)
 {
@@ -38,8 +55,10 @@ int get_rightmost_digit(char *str)
 	return (str[i] - '0');
 }
 
-/*	
-**	Takes in the memory location of an array of characters, and shifts the
+/*	shift_right
+**	2018-01-10 11-25-48
+**	Works.
+**	Takes in the memory location for an array of characters, and shifts the
 **	digits right.
 **	500 --> 050
 **	050 --> 005
