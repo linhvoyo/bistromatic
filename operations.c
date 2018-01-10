@@ -6,49 +6,13 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/09 17:20:42 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/10 13:39:24 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "bistromatic.h"
 
-int ft_strlen(char *str)
-{
-	int i; 
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char    *ft_strdup(char *s1)
-{
-	char    *temp;
-	int        i;
-
-	temp = (char*)malloc(sizeof(*temp) * (ft_strlen(s1) + 1));
-	i = -1;
-	if (temp)
-	{
-		while (s1[++i])
-			temp[i] = s1[i];
-		temp[i] = '\0';
-	}
-	return (temp);
-}
-
-void    ft_memdel(void **ap)
-{
-	if (ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
-}
-
-char *padding(char *s1, int n)
+char *pad_left(char *s1, int n)
 {
 	char *str;
 	int len;
@@ -82,7 +46,7 @@ void truncate_zeros(char **str)
 	free(temp);
 }
 
-char *addition(char *s1, char *s2)
+char *add(char *s1, char *s2)
 {
 	char *total;
 
@@ -94,14 +58,14 @@ char *addition(char *s1, char *s2)
 	carry = 0;
 	if ((len1 = ft_strlen(s1) + 1) > (len2 = ft_strlen(s2) + 1))
 	{
-		s2 = padding(s2,len1 - 1);
+		s2 = pad_left(s2,len1 - 1);
 		total = (char *)malloc(sizeof(char) * (len1 + 1));
 		i = len1;
 	}
 	else
 	{
 		total = (char *)malloc(sizeof(char) * (len2 + 1));
-		s1 = padding(s1, len2 - 1);
+		s1 = pad_left(s1, len2 - 1);
 		i = len2;
 	}
 	if (!total)
@@ -132,7 +96,7 @@ char *addition(char *s1, char *s2)
 	return (total);	
 }
 
-char *subtraction(char *s1, char *s2)
+char *subtract(char *s1, char *s2)
 {
 	char *total;
 
@@ -150,14 +114,14 @@ char *subtraction(char *s1, char *s2)
 		big = len1;
 		small = len2;
 		total = (char *)malloc(sizeof(char) * (len1 + 1));
-		s2 = padding(s2,len1);
+		s2 = pad_left(s2,len1);
 	}
 	else
 	{
 		big = len2;
 		small = len1;
 		total = (char *)malloc(sizeof(char) * (len2 + 1));
-		s1 = padding(s1,len2);
+		s1 = pad_left(s1,len2);
 	}
 	if (!total)
 		return (NULL);
@@ -211,7 +175,7 @@ char *subtraction(char *s1, char *s2)
 }
 
 /*
-char *multiplication(char *s1, char *s2)
+char *multiply(char *s1, char *s2)
 {
 	char *total;
 	int i;
@@ -223,12 +187,14 @@ char *multiplication(char *s1, char *s2)
 
 */
 
+/*
 int main()
 {
-//	printf("%s\n", addition("15", "80"));
-	printf("%s\n", subtraction("1000090", "644"));
-//	printf("%s\n", subtraction("3000546090", "56445644"));
-//	printf("%s\n", multiplication("15", "80"));
-//	addition("5654654", "32132564154");
+//	printf("%s\n", add("15", "80"));
+	printf("%s\n", subtract("1000090", "644"));
+//	printf("%s\n", subtract("3000546090", "56445644"));
+//	printf("%s\n", multiply("15", "80"));
+//	add("5654654", "32132564154");
 	return (0);
 }
+*/

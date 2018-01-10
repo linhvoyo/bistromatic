@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 09:25:16 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 12:10:46 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/10 14:33:18 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,33 +35,37 @@ void	print_linked_list(linked_list *list)
 
 char	*summate_linked_list(linked_list *list)
 {
+	char *sum;
 
+	if (list && !list->next)
+		return (list->data);
+	else if (!list)
+		return ("0");
+	sum = 0;
+	while (list)
+	{
+		if (!sum)
+			sum = add("0", list->data);
+		else
+			sum = add(sum, list->data);
+		list = list->next;
+	}
+	return (sum);
 }
 
-int ft_strlen(char *str)
+char	*pad_right(char *str, int number_of_zeros)
 {
-    int i;
+	char *new;
+	int length;
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
-}
-
-char    *ft_strdup(char *s1)
-{
-    char    *temp;
-    int        i;
-
-    temp = (char*)malloc(sizeof(*temp) * (ft_strlen(s1) + 1));
-    i = -1;
-    if (temp)
-    {
-        while (s1[++i])
-            temp[i] = s1[i];
-        temp[i] = '\0';
-    }
-    return (temp);
+	if (!number_of_zeros)
+		return (str);
+	length = ft_strlen(str);
+	new = ft_strnew(length + number_of_zeros);
+	new = ft_strcpy(new, str);
+	while (number_of_zeros)
+		new[(length - 1) + number_of_zeros--] = '0';
+	return (new);
 }
 
 /*
@@ -179,38 +183,84 @@ int pop_digit(char *str)
 	return (value);
 }
 
-/*
+void initialize_zero(char *str, int length)
+{
+	while (length--)
+		str[length] = '0';
+}
+
 char *multiply(char *str1, char *str2)
 {
-	char *new;
+	char *row_result;
+	linked_list *list;
+	int count;
+	int i;
+	int j;
+	int value;
+	int carry;
+	int singles_digit;
+
+	count = 0;
+	i = ft_strlen(str1);
+	j = ft_strlen(str2);
+	row_result = ft_strnew(i + j);
+	initialize_zero(row_result, i + j);
+	while (i)
+	{
+		j = ft_strlen(str2);
+		while (j)
+		{
+			value = (str1[i - 1] - '0') * (str2[j - 1] - '0');
+			carry = value / 10;
+			singles_digit = get_rightmost_digit(ft_itoa(value));
+			row_result[j] = singles_digit + '0';
+			row_result[j - 1] = row_result[j - 1] + carry;
+			printf("%s\n", row_result);
+			j--;
+		}
+		i--;
+	}
+	return (row_result);
 }
-*/
 
 int main()
 {
 	char *str1;
-	str1 = malloc(sizeof(char) * 8);
+	str1 = malloc(sizeof(char) * 6);
 	str1[0] = '0';
-	str1[1] = '0';
-	str1[2] = '5';
-	str1[3] = '4';
-	str1[4] = '3';
-	str1[5] = '2';
-	str1[6] = '1';
-	str1[7] = '\0';
+	str1[1] = '1';
+	str1[2] = '3';
+	str1[3] = '2';
+	str1[4] = '1';
+	str1[5] = '\0';
 
 	char *str2;
-	str2 = malloc(sizeof(char) * 8);
-	str2[0] = '0';
-	str2[1] = '0';
-	str2[2] = '1';
-	str2[3] = '2';
-	str2[4] = '3';
-	str2[5] = '4';
-	str2[6] = '5';
-	str2[7] = '\0';
+	str2 = malloc(sizeof(char) * 6);
+	str2[0] = '1';
+	str2[1] = '2';
+	str2[2] = '3';
+	str2[3] = '4';
+	str2[4] = '5';
+	str2[5] = '\0';
 
-	linked_list *new;
-	new = create_link(ft_strdup(str1));
-	print_linked_list(new);
+	char *str3;
+	str3 = malloc(sizeof(char) * 5);
+	str3[0] = '1';
+	str3[1] = '2';
+	str3[2] = '3';
+	str3[3] = '0';
+	str3[4] = '\0';
+
+	linked_list *new1;
+	new1 = create_link(ft_strdup(str1));
+
+	linked_list *new2;
+	new2 = create_link(ft_strdup(str2));
+	new1->next = new2;
+
+	linked_list *new3;
+	new3 = create_link(ft_strdup(str3));
+	new2->next = new3;
+
+	printf("%s\n", multiply("89723", "9"));
 }
