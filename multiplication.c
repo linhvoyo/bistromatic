@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 09:25:16 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 14:33:18 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/10 15:13:31 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,36 +191,46 @@ void initialize_zero(char *str, int length)
 
 char *multiply(char *str1, char *str2)
 {
-	char *row_result;
+	char *row;
 	linked_list *list;
 	int count;
 	int i;
 	int j;
 	int value;
 	int carry;
+	int length;
 	int singles_digit;
 
 	count = 0;
 	i = ft_strlen(str1);
 	j = ft_strlen(str2);
-	row_result = ft_strnew(i + j);
-	initialize_zero(row_result, i + j);
+	row = ft_strnew(i + j);
+	initialize_zero(row, i + j);
+	length = ft_strlen(row) - 1;
 	while (i)
 	{
 		j = ft_strlen(str2);
 		while (j)
 		{
+			printf("\n");
 			value = (str1[i - 1] - '0') * (str2[j - 1] - '0');
 			carry = value / 10;
-			singles_digit = get_rightmost_digit(ft_itoa(value));
-			row_result[j] = singles_digit + '0';
-			row_result[j - 1] = row_result[j - 1] + carry;
-			printf("%s\n", row_result);
+			singles_digit = value % 10;
+			row[length] = singles_digit + row[length] - '0';
+			row[length - 1] = carry + row[length - 1];
+			if (row[length] > 9)
+			{
+				row[length - 2] = row[length - 2] + 1;
+				row[length] = row[length] % 10;
+			}
+			printf("row: %d\n", row[length]);
+			printf("value: %d, carry: %d, singles_digit: %d\n", value, carry, singles_digit);
 			j--;
 		}
+		length--;
 		i--;
 	}
-	return (row_result);
+	return (row);
 }
 
 int main()
@@ -262,5 +272,5 @@ int main()
 	new3 = create_link(ft_strdup(str3));
 	new2->next = new3;
 
-	printf("%s\n", multiply("89723", "9"));
+	printf("%s\n", multiply("897023", "9"));
 }
