@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/09 17:20:42 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/10 12:23:54 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void truncate_zeros(char **str)
 	free(temp);
 }
 
-char *addition(char *s1, char *s2)
+char *add(char *s1, char *s2)
 {
 	char *total;
 
@@ -132,7 +132,7 @@ char *addition(char *s1, char *s2)
 	return (total);	
 }
 
-char *subtraction(char *s1, char *s2)
+char *subtract(char *s1, char *s2)
 {
 	char *total;
 
@@ -211,7 +211,7 @@ char *subtraction(char *s1, char *s2)
 }
 
 /*
-char *multiplication(char *s1, char *s2)
+char *multiply(char *s1, char *s2)
 {
 	char *total;
 	int i;
@@ -225,10 +225,10 @@ char *multiplication(char *s1, char *s2)
 
 int main()
 {
-//	printf("%s\n", addition("15", "80"));
-	printf("%s\n", subtraction("1000090", "644"));
-//	printf("%s\n", subtraction("3000546090", "56445644"));
-//	printf("%s\n", multiplication("15", "80"));
-//	addition("5654654", "32132564154");
+//	printf("%s\n", add("15", "80"));
+	printf("%s\n", subtract("1000090", "644"));
+//	printf("%s\n", subtract("3000546090", "56445644"));
+//	printf("%s\n", multiply("15", "80"));
+//	add("5654654", "32132564154");
 	return (0);
 }
