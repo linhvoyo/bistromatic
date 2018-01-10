@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 09:25:16 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 14:33:18 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/10 14:56:50 by linh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,7 @@ void initialize_zero(char *str, int length)
 char *multiply(char *str1, char *str2)
 {
 	char *row_result;
-	linked_list *list;
+//	linked_list *list;
 	int count;
 	int i;
 	int j;
