@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/10 16:03:19 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/10 16:13:25 by linh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,8 +193,6 @@ char *subtract(char *s1, char *s2)
 	}
 	if (sign == -1)
 		total[0] = '-';
-	else
-		total[0] = '0';
 	truncate_zeros(&total);
 	return (total);	
 }
@@ -209,6 +207,7 @@ int main()
 	printf("%s\n", add("15", "80"));
 	printf("%s\n", subtract("3000546090", "3000546089"));
 	printf("%s\n", subtract("20001230090", "600450344"));
+	printf("%s\n", subtract("600450344", "20001230090"));
 //	printf("%s\n", multiplication("15", "80"));
 	printf("%s\n", add("5654654", "32132564154"));
 	return (0);

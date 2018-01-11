@@ -190,7 +190,7 @@ void initialize_zero(char *str, int length)
 char *multiply(char *str1, char *str2)
 {
 	char *row;
-	linked_list *list;
+//	linked_list *list;
 	int count;
 	int i;
 	int j;
