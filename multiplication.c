@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 09:25:16 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 16:30:21 by hiroshius        ###   ########.fr       */
+/*   Created: 2018/01/10 19:07:21 by hiroshius         #+#    #+#             */
+/*   Updated: 2018/01/10 19:31:35 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ linked_list	*create_link(char *str)
 	new->data = str;
 	new->next = 0;
 	return (new);
+}
+
+void add_link(linked_list **list, char *str)
+{
+	linked_list *iter;
+
+	iter = (*list);
+	while (iter->next)
+   		iter = iter->next;
+	iter->next = create_link(str);
 }
 
 void	print_linked_list(linked_list *list)
@@ -66,14 +76,6 @@ char	*pad_right(char *str, int number_of_zeros)
 	return (new);
 }
 
-/*
-**	zeroed
-**	2018-01-10 11-26-31
-**	Works.
-**	"0005" --> 0
-**	"0000" --> 1
-*/
-
 int zeroed(char *str)
 {
 	while (*str)
@@ -84,17 +86,6 @@ int zeroed(char *str)
 	}
 	return (1);
 }
-
-/*
-**	get_rightmost_digit
-**	2018-01-10 11-25-48	
-**	Works.
-**	555 --> 5
-**	554 --> 4
-**	5 --> 5
-**	0 --> 0
-**	"<Empty string>" --> 0
-*/
 
 int get_rightmost_digit(char *str)
 {
@@ -109,17 +100,6 @@ int get_rightmost_digit(char *str)
 		i++;
 	return (str[i] - '0');
 }
-
-/*
-**	shift_right
-**	2018-01-10 11-25-48
-**	Works.
-**	Takes in the memory location for an array of characters, and shifts the
-**	digits right.
-**	500 --> 050
-**	050 --> 005
-**	005 --> 000
-*/
 
 void shift_right(char **string_pointer)
 {
@@ -165,13 +145,6 @@ void shift_right(char **string_pointer)
 	}
 }
 
-/*
-**	pop_digit
-**	2018-01-10 11:37 Tested
-**	Gets the one's place digit,
-**	Pops the number off of the string.
-*/
-
 int pop_digit(char *str)
 {
 	int value;
@@ -183,15 +156,17 @@ int pop_digit(char *str)
 
 void initialize_zero(char *str, int length)
 {
-	while (length--)
-		str[length] = '0';
+	int i;
+
+	i = 0;
+	while (i < length)
+		str[i++] = '0';
+	str[i] = '\0';
 }
 
-char *multiply(char *str1, char *str2)
+char *multiply_helper(char *str1, char *str2)
 {
 	char *row;
-//	linked_list *list;
-	int count;
 	int i;
 	int j;
 	int value;
@@ -199,7 +174,6 @@ char *multiply(char *str1, char *str2)
 	int length;
 	int singles_digit;
 
-	count = 0;
 	i = ft_strlen(str1);
 	j = ft_strlen(str2);
 	row = ft_strnew(i + j);
@@ -210,19 +184,16 @@ char *multiply(char *str1, char *str2)
 		j = ft_strlen(str2);
 		while (j)
 		{
-			printf("\n");
 			value = (str1[i - 1] - '0') * (str2[j - 1] - '0');
 			carry = value / 10;
-			singles_digit = value % 10;
-			row[length] = singles_digit + row[length] - '0';
-			row[length - 1] = carry + row[length - 1];
-			if (row[length] > 9)
+			singles_digit = value % 10 + row[i] - '0';
+			if (singles_digit > 9)
 			{
-				row[length - 2] = row[length - 2] + 1;
-				row[length] = row[length] % 10;
+				carry = carry + singles_digit / 10;
+				singles_digit = singles_digit % 10;
 			}
-			printf("row: %s\n", row);
-			printf("value: %d, carry: %d, singles_digit: %d\n", value, carry, singles_digit);
+			row[i] = singles_digit + '0';
+			row[i - 1] = carry + row[i - 1];
 			j--;
 		}
 		length--;
@@ -231,20 +202,56 @@ char *multiply(char *str1, char *str2)
 	return (row);
 }
 
+char *multiply(char *str1, char *str2)
+{
+	linked_list *list;
+	linked_list *iter;
+	char *negative_flag;
+	int count;
+
+	count = 0;
+	list = 0;
+	if ((str1[0] == '-' && str2[0] != '-') || (str1[0] != '-' && str2[0] == '-'))
+	{
+		negative_flag = "-";
+		if (str1[0] == '-')
+			str1++;
+		if (str2[0] == '-')
+			str2++;
+	}
+	else
+	{
+		negative_flag = "";
+		if (str1[0] == '-')
+			str1++;
+		if (str2[0] == '-')
+			str2++;
+	}
+	while (!zeroed(str2))
+	{
+		if (!list)
+			list = create_link(multiply_helper(str1, pad_right(ft_itoa(pop_digit(str2)), count)));
+		else
+			add_link(&list, multiply_helper(str1, pad_right(ft_itoa(pop_digit(str2)), count)));
+		count++;
+	}
+	return (ft_strjoin(negative_flag, summate_linked_list(list)));
+}
+
+/*
 int main()
 {
 	char *str1;
 	str1 = malloc(sizeof(char) * 6);
-	str1[0] = '0';
-	str1[1] = '1';
-	str1[2] = '3';
-	str1[3] = '2';
-	str1[4] = '1';
-	str1[5] = '\0';
+	str1[0] = '-';
+	str1[1] = '5';
+	str1[2] = '1';
+	str1[3] = '1';
+	str1[4] = '\0';
 
 	char *str2;
 	str2 = malloc(sizeof(char) * 6);
-	str2[0] = '1';
+	str2[0] = '-';
 	str2[1] = '2';
 	str2[2] = '3';
 	str2[3] = '4';
@@ -269,6 +276,7 @@ int main()
 	linked_list *new3;
 	new3 = create_link(ft_strdup(str3));
 	new2->next = new3;
-
-	printf("%s\n", multiply("897023", "9"));
+	// -511 * -2345 = 
+	printf("%s\n", multiply(str1, str2));
 }
+*/
