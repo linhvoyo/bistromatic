@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/10 15:49:21 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/10 15:59:55 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,11 @@ void truncate_zeros(char **str)
 	char *temp;
 
 	i = 0;
-	if (*str[i++] == '-')
+	if (*str[i] == '-')
+	{
 		sign = -1;
+		i++;
+	}
 	while ((*str)[i] && (*str)[i] == '0')
 		i++;
 	temp = *str;
@@ -207,5 +210,4 @@ int main()
 	printf("%s\n", add("5654654", "32132564154"));
 	return (0);
 }
-
 */
