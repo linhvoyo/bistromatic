@@ -6,114 +6,12 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/10 21:32:18 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/11 10:18:15 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bistromatic.h"
 
-char *pad_left(char *s1, int n)
-{
-	char *str;
-	int len;
-	int i;
-	int j;
-
-	len = ft_strlen(s1);
-	str = (char*)malloc(sizeof(char)*(n + 1));
-	if (!str)
-		return (0);
-	i = 0;
-	j = 0;
-	while (i < (n - len))
-		str[i++] = '0';
-	while (i < n)
-		str[i++] = s1[j++];
-	str[n] = '\0';
-	return (str);
-}
-
-
-void truncate_zeros(char **str)
-{
-	int i;
-	int sign;
-
-	char *temp;
-
-	i = 0;
-	if (*str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	while ((*str)[i] && (*str)[i] == '0')
-		i++;
-	temp = *str;
-	if (sign == -1)
-		*str = ft_strjoin("-", *str + i);
-	else
-		*str = ft_strdup(*str + i);
-	free(temp);
-}
-
-
-
-
-char *add(char *s1, char *s2)
-{
-	char *total;
-
-	int len1;
-	int len2;
-	int carry;
-	int i;
-
-	carry = 0;
-	if ((len1 = ft_strlen(s1) + 1) > (len2 = ft_strlen(s2) + 1))
-	{
-		s2 = pad_left(s2,len1 - 1);
-		total = (char *)malloc(sizeof(char) * (len1 + 1));
-		i = len1;
-	}
-	else
-	{
-		total = (char *)malloc(sizeof(char) * (len2 + 1));
-		s1 = pad_left(s1, len2 - 1);
-		i = len2;
-	}
-	if (!total)
-		return (NULL);
-
-	total[i--] = '\0';
-	while (i > 0)
-	{
-		int value1 = s1[i - 1] - '0';
-		int value2 = s2[i - 1] - '0';
-		if ((value1) + (value2) > 9)
-		{
-			total[i] = ((value1) + (value2)) % 10 + carry + '0';
-			carry = 1;
-			if (i == 1)
-				total[0] = '1';
-		}
-		else if (value1 + value2 + carry == 10)
-		{
-			total[i] = '0';
-			carry = 1;
-		}
-		else
-		{
-			total[i] = (value1) + (value2) + carry + '0';
-			carry = 0;
-			if (i == 1)
-				total[0] = '0';
-		}
-		i--;
-	}
-	truncate_zeros(&total);
-	return (total);	
-}
 
 int is_str1_smaller(char *str1, char *str2)
 {
