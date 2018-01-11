@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 09:25:16 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 16:19:13 by linh             ###   ########.fr       */
+/*   Updated: 2018/01/10 16:30:21 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,7 @@ char *multiply(char *str1, char *str2)
 				row[length - 2] = row[length - 2] + 1;
 				row[length] = row[length] % 10;
 			}
-			printf("row: %d\n", row[length]);
+			printf("row: %s\n", row);
 			printf("value: %d, carry: %d, singles_digit: %d\n", value, carry, singles_digit);
 			j--;
 		}
