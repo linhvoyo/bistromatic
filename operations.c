@@ -6,13 +6,11 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/10 15:14:09 by linh             ###   ########.fr       */
+/*   Updated: 2018/01/10 16:03:19 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "bistromatic.h"
-#include <stdlib.h>
 
 char *pad_left(char *s1, int n)
 {
@@ -44,8 +42,11 @@ void truncate_zeros(char **str)
 	char *temp;
 
 	i = 0;
-	if (*str[i++] == '-')
+	if (*str[i] == '-')
+	{
 		sign = -1;
+		i++;
+	}
 	while ((*str)[i] && (*str)[i] == '0')
 		i++;
 	temp = *str;
@@ -161,7 +162,7 @@ char *subtract(char *s1, char *s2)
 	i = big;
 	int loop = 0;
 	total[i--] = '\0';
-	while (i > 0)
+	while (i >= 0)
 	{
 		loop = 0;
 		int value1 = s1[i] - '0';
@@ -190,7 +191,10 @@ char *subtract(char *s1, char *s2)
 			total[i] = '0';
 		i--;
 	}
-	(sign == -1) ? (total[0] = '-') : (total[0] = '0');
+	if (sign == -1)
+		total[0] = '-';
+	else
+		total[0] = '0';
 	truncate_zeros(&total);
 	return (total);	
 }
@@ -209,5 +213,4 @@ int main()
 	printf("%s\n", add("5654654", "32132564154"));
 	return (0);
 }
-
 */
