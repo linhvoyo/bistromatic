@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:10:08 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/11 20:10:11 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/11 22:08:39 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char *multiply(char *str1, char *str2);
 int zeroed(char *str);
 int is_str1_smaller(char *str1, char *str2);
 void print_linked_list(linked_list *list);
+char *divide(char *dividend, char *divisor);
 
 #endif
