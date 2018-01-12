@@ -46,7 +46,7 @@ void truncate_zeros(char **str)
 
 
 
-
+/*
 char *add(char *s1, char *s2)
 {
 	char *total;
@@ -103,6 +103,7 @@ char *add(char *s1, char *s2)
 
 	return (total);	
 }
+*/
 
 int is_str1_smaller(char *str1, char *str2)
 {

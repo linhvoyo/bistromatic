@@ -56,12 +56,8 @@ char *multiply(char *str1, char *str2)
 		if (!list)
 			list = create_link(multiply_helper(str1_copy, ft_itoa(digit)));
 		else
-		{
-			pad_right(multiply_helper(str1_copy, ft_itoa(digit)), count);
-			// Weird memory thing if I don't call pad_right two times.
 			add_link(&list, pad_right(multiply_helper(str1_copy,
 							ft_itoa(digit)), count));
-		}
 		count++;
 	}
 	new = ft_strjoin(negative_flag, summate_linked_list(list));
