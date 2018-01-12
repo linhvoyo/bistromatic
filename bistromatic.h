@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 18:41:07 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 20:11:26 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/11 18:37:12 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void shift_right(char **string_pointer);
 char *pad_right(char *str, int number_of_zeros);
 char *multiply(char *str1, char *str2);
 int zeroed(char *str);
+int is_str1_smaller(char *str1, char *str2);
+void print_linked_list(linked_list *list);
 
 #endif

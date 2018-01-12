@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 19:07:21 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 22:51:42 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/11 19:51:46 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char *multiply(char *str1, char *str2)
 	char *negative_flag;
 	char *str1_copy = ft_strdup(str1);
 	char *str2_copy = ft_strdup(str2);
+	char *new;
 	int count;
 
 	count = 0;
@@ -53,8 +54,8 @@ char *multiply(char *str1, char *str2)
 	if (zeroed(str1) || zeroed(str2))
 		return ("0");
 	negative_flag = "";
-	if ((str1[0] == '-' && str2[0] != '-') || (str1[0] != '-' && str2[0] == '-'\
-				))
+	if ((str1[0] == '-' && str2[0] != '-') ||
+			(str1[0] != '-' && str2[0] == '-'))
 		negative_flag = "-";
 	if (str1[0] == '-')
 		str1_copy++;
@@ -67,9 +68,15 @@ char *multiply(char *str1, char *str2)
 		if (!list)
 			list = create_link(multiply_helper(str1_copy, ft_itoa(digit)));
 		else
-			add_link(&list, pad_right(multiply_helper(str1_copy, ft_itoa(digit)\
-							), count));
+		{
+			pad_right(multiply_helper(str1_copy, ft_itoa(digit)), count);
+			// Weird memory thing if I don't call pad_right two times.
+			add_link(&list, pad_right(multiply_helper(str1_copy,
+							ft_itoa(digit)), count));
+		}
 		count++;
 	}
-	return (ft_strjoin(negative_flag, summate_linked_list(list)));
+	new = ft_strjoin(negative_flag, summate_linked_list(list));
+	truncate_zeros(&new);
+	return (new);
 }

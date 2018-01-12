@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_zero.c                                  :+:      :+:    :+:   */
+/*   is_str1_smaller.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 19:54:09 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/11 19:28:30 by hiroshius        ###   ########.fr       */
+/*   Created: 2018/01/11 18:19:21 by hiroshius         #+#    #+#             */
+/*   Updated: 2018/01/11 18:19:24 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bistromatic.h"
 
-void initialize_zero(char *str, int length)
+int is_str1_smaller(char *str1, char *str2)
 {
-    int i;
-
-    i = 0;
-    while (i < length)
-        str[i++] = '0';
-    str[i] = '\0';
+	int n1;
+	int n2;
+	int i;
+	
+	if ((n1 = ft_strlen(str1)) < (n2 = ft_strlen(str2)))
+		return (1);
+	if (n2 < n1)
+		return (0);
+	i = 0;
+	while (i < n1)
+	{
+		if (str1[i] < str2[i])
+			return (1);
+		else if (str1[i] > str2[i])
+			return (0);
+		i++;
+	}
+	return (0);
 }

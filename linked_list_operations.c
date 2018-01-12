@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 19:38:49 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/10 22:51:29 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/11 18:36:27 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,14 @@ char    *summate_linked_list(linked_list *list)
         list = list->next;
     }
     return (sum);
+}
+
+void	print_linked_list(linked_list *list)
+{
+	while (list)
+	{
+		ft_putstr(list->data);
+		ft_putstr("\n");
+		list = list->next;
+	}
 }
