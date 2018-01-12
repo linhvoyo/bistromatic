@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "util.h"
+#include "bistromatic.h"
 
 char	push_operator(char **expression)
 {
