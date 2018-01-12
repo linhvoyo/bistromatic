@@ -1,18 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/11 22:19:00 by hiroshius        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "bistromatic.h"
-
-int number_cmp(char *str1, char *str2);
 
 int main()
 {
@@ -30,6 +16,24 @@ int main()
 //	printf("%s\n", multiply("5000", "5000"));
 //	printf("%s\n", multiply("10333147966386144929666651337523200000000", "10333147966386144929666651337523200000000"));
 //	Answer: 10677394689523012254528145055942533022385812620552707152831053824000000000000000
-	printf("%s\n", divide("50", "570"));
+//	printf("%d\n", number_cmp("570", "570"));
+//	printf("%s\n", modulo("10", "3"));
+//	printf("%s\n", divide("10", "5"));
+//	printf("%s\n", divide("15", "5"));
+//	printf("%s\n", divide("20", "5"));
+//	printf("%s\n", divide("21", "5"));
+//	printf("%s\n", divide("22", "5"));
+//	printf("%s\n", divide("23", "5"));
+//	printf("%s\n", divide("24", "5"));
+//	printf("%s\n", divide("29", "5"));
+//	printf("%s\n", divide("30", "5"));
+//	printf("%s\n", divide("35", "5"));
+//	printf("%s\n", divide("100", "5"));
+//	printf("%s\n", divide("105", "5"));
+//	printf("%s\n", divide("106", "5"));
+//	printf("%s\n", divide("210", "5"));
+//	printf("%s\n", divide("200", "500"));
+	printf("%s\n", divide("10", "3"));
+	printf("%s\n", divide("10", "2"));
 	return (0);
 }

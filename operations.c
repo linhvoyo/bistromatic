@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 07:58:23 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/11 22:18:44 by hiroshius        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "bistromatic.h"
 
 char *pad_left(char *s1, int n)
@@ -250,7 +238,7 @@ char *divide(char *dividend, char *divisor)
 	int j;
 
 	start_len = ft_strlen(divisor);
-	if ((i = ft_strcmp(pad_left(dividend, start_len), pad_left(divisor, start_len))) < 0)
+	if (number_cmp(dividend, divisor) < 0)
 		return ("0");
 	if (ft_strncmp(dividend, divisor, start_len) < 0 )
 		start_len = start_len + 1;
@@ -293,8 +281,21 @@ int main()
 //	printf("%s\n", add("369", "3690"));
 //	printf("%s\n", add("15", "80"));
 //	printf("%s\n", add("5654654", "32132564154"));
-//	printf("%s\n", divide("56756734", "558"));
-//	printf("%s\n", divide("570", "558"));
+//	printf("%s\n", divide("10", "5"));
+//	printf("%s\n", divide("15", "5"));
+//	printf("%s\n", divide("20", "5"));
+//	printf("%s\n", divide("21", "5"));
+//	printf("%s\n", divide("22", "5"));
+//	printf("%s\n", divide("23", "5"));
+//	printf("%s\n", divide("24", "5"));
+//	printf("%s\n", divide("29", "5"));
+//	printf("%s\n", divide("30", "5"));
+//	printf("%s\n", divide("35", "5"));
+//	printf("%s\n", divide("100", "5"));
+//	printf("%s\n", divide("105", "5"));
+//	printf("%s\n", divide("106", "5"));
+//	printf("%s\n", divide("210", "5"));
+//	printf("%s\n", divide("200", "500"));
 //	printf("%s\n", divide("567567387899889978", "56545645645658"));
 //	printf("%s\n", divide("567567387899889978", "56545645645646666666666666665658"));
 //	printf("%s\n", divide("567567387899889978", "9791321321312355646451321897789877894687898789778946156987849164544561231256545645645658"));
