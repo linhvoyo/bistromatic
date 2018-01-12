@@ -191,6 +191,8 @@ char *subtract(char *s1, char *s2)
 	}
 	if (sign == -1)
 		total[0] = '-';
+	if (number_cmp("0", total) == 0)
+		return ("0");
 	truncate_zeros(&total);
 	return (total);	
 }

@@ -1,14 +1,5 @@
 #include "bistromatic.h"
 
-static void swap(char **str1, char **str2)
-{
-	char *temp;
-
-	temp = (*str1);
-	(*str1) = (*str2);
-	(*str2) = temp;
-}
-
 char *add(char *str1, char *str2)
 {
 	char *num1;
@@ -22,16 +13,17 @@ char *add(char *str1, char *str2)
 		swap(&num1, &num2);
 	if (zeroed(num1) || zeroed(num2))
 		return (num1);
-	if (is_negative(num2))
+	if (is_negative(num1) && is_negative(num2))
+		return ft_strjoin("-", add(++num1, ++num2));
+	if (!is_negative(num1) && is_negative(num2))
 		return (subtract(num1, ++num2));
 	num1 = pad_left(num1, ft_strlen(num1) + 1);
 	i = ft_strlen(num1) - 1;
 	while (i > 0)
 	{
 		value = (num1[i] - '0') + pop_digit(num2);
-		num1[i] = value % 10 + '0';
 		num1[i - 1] = value / 10 + num1[i - 1];
-		i--;
+		num1[i--] = value % 10 + '0';
 	}
 	truncate_zeros(&num1);
 	return (num1);

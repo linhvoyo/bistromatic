@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:10:08 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/12 12:43:37 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/12 15:18:56 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ char *divide(char *dividend, char *divisor);
 int number_cmp(char *str1, char *str2);
 char *modulo(char *dividend, char *divisor);
 int is_negative(char *str1);
+void swap(char **str1, char **str2);
 
 #endif
