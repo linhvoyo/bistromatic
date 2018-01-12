@@ -35,5 +35,6 @@ void shift_right(char **string_pointer);
 char *pad_right(char *str, int number_of_zeros);
 char *multiply(char *str1, char *str2);
 int zeroed(char *str);
+int handle_expression(char **expression, int sign);
 
 #endif
