@@ -11,7 +11,7 @@ char *add(char *str1, char *str2)
 	num2 = ft_strdup(str2);
 	if (number_cmp(str1, str2) < 0)
 		swap(&num1, &num2);
-	if (zeroed(num1) || zeroed(num2))
+	if (zeroed(num2))
 		return (num1);
 	if (is_negative(num1) && is_negative(num2))
 		return ft_strjoin("-", add(++num1, ++num2));
