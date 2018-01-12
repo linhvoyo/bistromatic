@@ -2,7 +2,6 @@
 
 int main()
 {
-	
 // 	printf("%s\n", subtract("5", "10"));
 // 	printf("%s\n", subtract("10", "5"));
 // 	printf("%s\n", subtract("644", "1000090"));
@@ -17,7 +16,7 @@ int main()
 //	printf("%s\n", multiply("10333147966386144929666651337523200000000", "10333147966386144929666651337523200000000"));
 //	Answer: 10677394689523012254528145055942533022385812620552707152831053824000000000000000
 //	printf("%d\n", number_cmp("570", "570"));
-//	printf("%s\n", modulo("10", "3"));
+//	printf("%s\n", modulo("199", "2"));
 //	printf("%s\n", divide("10", "5"));
 //	printf("%s\n", divide("15", "5"));
 //	printf("%s\n", divide("20", "5"));
@@ -33,7 +32,7 @@ int main()
 //	printf("%s\n", divide("106", "5"));
 //	printf("%s\n", divide("210", "5"));
 //	printf("%s\n", divide("200", "500"));
-	printf("%s\n", divide("10", "3"));
-	printf("%s\n", divide("10", "2"));
+//	printf("%s\n", divide("10", "3"));
+//	printf("%s\n", divide("10", "2"));
 	return (0);
 }
