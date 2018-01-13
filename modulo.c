@@ -11,9 +11,7 @@ char *modulo(char *dividend, char *divisor)
 	if (zeroed(divisor))
 		return ("Error: Division by 0.");
 	negative_flag = "";
-	if (is_negative(dividend))
-		dividend++;
-	if (is_negative(divisor) && number_cmp(dividend, divisor) < 0)
+	if (is_negative(divisor) && number_cmp(dividend, divisor + 1) < 0)
 		return (divisor);
 	if (is_negative(divisor))
 	{
@@ -21,6 +19,7 @@ char *modulo(char *dividend, char *divisor)
 		divisor++;
 	}
 	multiplier = divide(dividend, divisor);
+	printf("%s\n", multiplier);
 	result = multiply(multiplier, divisor);
 	if (number_cmp(result, dividend) == 0)
 		return ("0");

@@ -9,8 +9,7 @@ static char *multiply_helper(char *str1, char *str2)
 	int singles_digit;
 
 	i = ft_strlen(str1);
-	row = ft_strnew(i + ft_strlen(str2));
-	initialize_zero(row, i + ft_strlen(str2));
+	row = initialize_zero(i + ft_strlen(str2));
 	while (i > 0)
 	{
 		value = (str1[i - 1] - '0') * (*str2 - '0');

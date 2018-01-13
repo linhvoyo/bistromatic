@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:10:08 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/12 21:13:27 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/13 13:50:04 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char *pad_left(char *s1, int n);
 void add_link(linked_list **list, char *str);
 linked_list *create_link(char *str);
 char *summate_linked_list(linked_list *list);
-void initialize_zero(char *str, int length);
+char *initialize_zero(int length);
 int pop_digit(char *str);
 int get_rightmost_digit(char *str);
 void shift_right(char **string_pointer);
@@ -42,7 +42,6 @@ int number_cmp(char *str1, char *str2);
 char *modulo(char *dividend, char *divisor);
 int is_negative(char *str1);
 void swap(char **str1, char **str2);
-
 
 char    push_operator(char **expression);
 char    *traverse_parenthical(char **expression);

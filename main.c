@@ -74,6 +74,7 @@ int main()
 	printf("%s / %s = %s\n", "10", "3", divide("10", "3"));
 	printf("%s / %s = %s\n", "10", "2", divide("10", "2"));
 	printf("%s / %s = %s\n", "10", "0", divide("10", "0"));
+	printf("%s / %s = %s, result should be: %s\n", "-500", "100", divide("-500", "100"), "-5");
 	printf("%s / %s = %s, result should be: %s\n", "50", "-65406540", divide("50", "-65406540"), "0");
 	printf("%s / %s = %s, result should be: %s\n", "99999", "33", divide("99999", "33"), "3030"); 
 	printf("%s / %s = %s, result should be: %s\n", "999999", "33", divide("999999", "33"), "30303"); 
