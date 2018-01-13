@@ -179,7 +179,6 @@ char	**closest_whole_num(char *divisor, char *minuend)
 {
 	char **res;
 	char *total;
-	char *tmp;
 	char counter[2];
 	int i;
 	int len;
@@ -198,7 +197,6 @@ char	**closest_whole_num(char *divisor, char *minuend)
 		i++;
 	}
 	counter[0] = '0' + i;
-213     char div[2];
 	res[0] = ft_strdup(counter);
 	res[1] = subtract(total, divisor);
 	if (counter[0] == '0')
