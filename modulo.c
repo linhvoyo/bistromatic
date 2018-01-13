@@ -11,5 +11,8 @@ char *modulo(char *dividend, char *divisor)
 		return ("Error: Division by 0.");
 	multiplier = divide(dividend, divisor);
 	result = multiply(multiplier, divisor);
-	return subtract(dividend, result);
+	printf("%s %s %s %s\n", dividend, divisor, multiplier, result);
+	if (number_cmp(result, dividend) == 0)
+		return ("0");
+	return (subtract(dividend, result));
 }
