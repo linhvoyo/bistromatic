@@ -20,6 +20,7 @@ int main()
 	printf("%s - %s = %s\n", "956", "550", subtract("956", "550"));
 	printf("%s - %s = %s\n", "-956", "550", subtract("-956", "550"));
 
+
 	printf("*****************ADDITION************\n");
  	printf("%d + %d = %s\n", -99, 0, add("-99", "0"));
  	printf("%d + %d = %s\n", 0, -99, add("0", "-99"));
@@ -42,6 +43,7 @@ int main()
 	printf("%d + %d = %s\n", 99, 1, add("99", "1"));
 	printf("%s + %s = %s, result should be: %s\n", "156705641798498747", "8927394867238468972364876234", "8927394867395174614163374981", add("156705641798498747", "8927394867238468972364876234"));
 
+
 	printf("*****************MULTIPLICATION************\n");
 	printf("%s * %s = %s, result should be: %s\n", "-10", "-10", multiply("-10", "-10"), "100");
 	printf("%s * %s = %s, result should be: %s\n", "0", "80", multiply("", "80"), "0");
@@ -52,15 +54,6 @@ int main()
 	printf("%s * %s = %s, result should be: %s\n", "10333147966386144929666651337523200000000", "10333147966386144929666651337523200000000", multiply("10333147966386144929666651337523200000000", "10333147966386144929666651337523200000000"), "106773946895230122545281450559425330223858126205527071528310538240000000000000000");
 
 
-//	Testing a lot of incremental additions.
-//	int i = 0;
-//	char *str1 = ft_strdup("0");
-//	while (i < 1000000)
-//	{
-//		str1 = add(str1, "1");
-//		printf("%s\n", str1);
-//		i++;
-//	}
 	printf("*****************DIVISION************\n");
 	printf("%s / %s = %s\n", "10", "5", divide("10", "5"));
 	printf("%s / %s = %s\n", "15", "5", divide("15", "5"));
@@ -84,11 +77,13 @@ int main()
 	printf("%s / %s = %s, result should be: %s\n", "999999", "33", divide("999999", "33"), "30303"); 
 	printf("%s / %s = %s, result should be: %s\n", "640549870897542310246578954612", "984651246541324", divide("640549870897542310246578954612", "984651246541324"), "650534768678282");
 
+
 	printf("*****************MODULUS************\n");
-	printf("%d %% %d = %s\n", 923498, 313, modulo("923498", "313"));
-	printf("%d %% %d = %s\n", 99999, 33, modulo("99999", "33"));
-	// Breaking point for dumb modulo. Dumb modulo works until modulo("99999", "33").
-
-
+	printf("%s %% %s = %s\n, result should be: %s", "923498", "313", modulo("923498", "313"), "148");
+	printf("%s %% %s = %s, result should be: %s\n", "984651", "-5647", modulo("984651", "-5647"), "-3574");
+	printf("%s %% %s = %s, result should be: %s\n", "-984651", "5647", modulo("984651", "-5647"), "3574");
+	printf("%s %% %s = %s, result should be: %s\n", "98420000000000000000", "-77", modulo("98420000000000000000", "-77"), "-14");
+	printf("%s %% %s = %s, result should be: %s\n", "0", "25", modulo("0", "25"), "0");
+	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "277");
 	return (0);
 }
