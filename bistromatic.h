@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:10:08 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/12 15:18:56 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/12 21:13:27 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,10 @@ char *modulo(char *dividend, char *divisor);
 int is_negative(char *str1);
 void swap(char **str1, char **str2);
 
+
+char    push_operator(char **expression);
+char    *traverse_parenthical(char **expression);
+char    *handle_expression(char **expression, char *sign);
+char *evaluate_expr(char *exp);
+char *ft_atoi_str(const char *str);
 #endif

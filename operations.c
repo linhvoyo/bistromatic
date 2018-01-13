@@ -195,7 +195,7 @@ char	**closest_whole_num(char *divisor, char *minuend)
 	while (ft_strncmp((tmp = pad_left(minuend, ft_strlen(total))), total, ft_strlen(minuend)) >= 0)
 	{
 		free(tmp);
-		total = add(total, divisor);
+		total = pad_left(add(total, divisor), len);
 		i++;
 	}
 	counter[0] = '0' + i;
@@ -233,6 +233,7 @@ char *divide(char *dividend, char *divisor)
 	minuend = ft_strdup(dividend);
 	minuend[start_len] = '\0';
 	dividend = (pad_right(dividend, 1));
+//	puts(dividend);
 	while (dividend[i])
 	{
 		res = closest_whole_num(divisor, minuend);
@@ -244,6 +245,9 @@ char *divide(char *dividend, char *divisor)
 		free(res);
 		free(tmp);
 //		printf("total[%d] %c\n", j, total[j]);
+//		printf("%d j\n", j);
+//		j++;
+//		i++;
 	}
 	total[j] = '\0';
 	return (total);

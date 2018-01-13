@@ -16,7 +16,7 @@ SRCS = eval_expr.c ft_util.c
 all: build
 
 build:
-	gcc -Wall -Werror -Wextra $(SRCS) -o $(NAME)
+	@@gcc -Wall -Werror -Wextra $(SRCS) -o $(NAME)
 
 clean:
 	rm -f $(NAME)

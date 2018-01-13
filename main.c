@@ -1,7 +1,12 @@
 #include "bistromatic.h"
+#include <stdio.h>
 
 int main()
 {
+//	printf("%s\n", evaluate_expr("398 + 505 / 505 + 8 * (5 + 10) % 10"));
+//	printf("%s\n", evaluate_expr("398 + 505 / 505 + 8 * (5 + 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000877777777777777777777777777)"));
+	
+//	ft_atoi_str("398 + 505 / 505 + 8");
 	printf("*****************SUBTRACTION************\n");
  	printf("%d - %d = %s\n", 5, 10, subtract("5", "10"));
  	printf("%d - %d = %s\n", 10, 5, subtract("10", "5"));
@@ -13,6 +18,7 @@ int main()
  	printf("%s - %s = %s, result should be: %s\n", "20001230090", "600450344", subtract("20001230090", "600450344"), "19400779746");
  	printf("%s - %s = %s, result should be: %s\n", "600450344", "20001230090", subtract("600450344", "20001230090"), "-19400779746");
 	printf("%s - %s = %s\n", "956", "550", subtract("956", "550"));
+	printf("%s - %s = %s\n", "-956", "550", subtract("-956", "550"));
 
 	printf("*****************ADDITION************\n");
  	printf("%d + %d = %s\n", -99, 0, add("-99", "0"));
@@ -80,5 +86,7 @@ int main()
 	printf("%d %% %d = %s\n", 923498, 313, modulo("923498", "313"));
 	printf("%d %% %d = %s\n", 99999, 33, modulo("99999", "33"));
 	// Breaking point for dumb modulo. Dumb modulo works until modulo("99999", "33").
+
+
 	return (0);
 }
