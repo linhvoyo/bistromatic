@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:10:08 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/13 13:52:20 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/13 14:12:02 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int number_cmp(char *str1, char *str2);
 char *modulo(char *dividend, char *divisor);
 int is_negative(char *str1);
 void swap(char **str1, char **str2);
+void prepend_link(linked_list **list, char *str);
 
 char push_operator(char **expression);
 char *traverse_parenthical(char **expression);
