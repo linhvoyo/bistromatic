@@ -3,6 +3,12 @@
 
 int main()
 {
+	printf("%d - %d = %s\n", 26, -19, subtract("26", "-19"));
+	printf("%d - %d = %s\n", 26, 19, subtract("26", "19"));
+	printf("%d - %d = %s\n", -26, -19, subtract("-26", "-19"));
+	printf("%d - %d = %s\n", -26, 19, subtract("-26", "19"));
+	printf("%d - %d = %s\n", -5, 10, subtract("-5", "10"));
+	printf("%d - %d = %s\n", -5, -10, subtract("-5", "-10"));
 	printf("%d - %d = %s\n", 5, 10, subtract("5", "10"));
 	printf("%d - %d = %s\n", 5, -10, subtract("5", "-10"));
 

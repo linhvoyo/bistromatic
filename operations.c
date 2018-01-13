@@ -58,6 +58,8 @@ char *subtract(char *s1, char *s2)
 
 	if (is_negative(s2))
 		return (add(s1, multiply(s2,"-1")));
+	if (is_negative(s1))
+		return (multiply(add(multiply(s1, "-1"), s2), "-1"));
 	big = ft_strlen(s1);
 	if (is_str1_smaller(s1, s2)  && (big = ft_strlen(s2) + sign))
 	{
