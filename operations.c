@@ -240,6 +240,8 @@ char *divide(char *dividend, char *divisor)
 	int i;
 	int j;
 
+	if (zeroed(divisor))
+		return ("Error: Division by zero.");
 	start_len = ft_strlen(divisor);
 	if (number_cmp(dividend, divisor) < 0)
 		return ("0");
