@@ -192,13 +192,13 @@ char	**closest_whole_num(char *divisor, char *minuend)
 	else 
 		len = ft_strlen(minuend);
 	total = pad_left(total, len);
-	while (ft_strncmp((tmp = pad_left(minuend, ft_strlen(total))), total, ft_strlen(minuend)) >= 0)
+	while (number_cmp(total, minuend) <= 0)
 	{
-		free(tmp);
-		total = pad_left(add(total, divisor), len);
+		total = add(total, divisor);
 		i++;
 	}
 	counter[0] = '0' + i;
+213     char div[2];
 	res[0] = ft_strdup(counter);
 	res[1] = subtract(total, divisor);
 	if (counter[0] == '0')
@@ -223,6 +223,8 @@ char *divide(char *dividend, char *divisor)
 	start_len = ft_strlen(divisor);
 	if (number_cmp(dividend, divisor) < 0)
 		return ("0");
+	if (number_cmp(dividend, divisor) > 0 && is_negative(divisor))
+		return ("0");
 	if (ft_strncmp(dividend, divisor, start_len) < 0 )
 		start_len = start_len + 1;
 	total = (char *)malloc(sizeof(char) * (ft_strlen(dividend) - start_len + 1 + 1));
@@ -233,7 +235,6 @@ char *divide(char *dividend, char *divisor)
 	minuend = ft_strdup(dividend);
 	minuend[start_len] = '\0';
 	dividend = (pad_right(dividend, 1));
-//	puts(dividend);
 	while (dividend[i])
 	{
 		res = closest_whole_num(divisor, minuend);
