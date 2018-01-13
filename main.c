@@ -73,8 +73,9 @@ int main()
 	printf("%s / %s = %s\n", "10", "3", divide("10", "3"));
 	printf("%s / %s = %s\n", "10", "2", divide("10", "2"));
 	printf("%s / %s = %s\n", "10", "0", divide("10", "0"));
-//	printf("%s / %s = %s, result should be: %s\n", "99999", "33", divide("99999", "33"), "3030"); 
-//	printf("%s / %s = %s, result should be: %s\n", "999999", "33", divide("999999", "33"), "30303"); 
+	printf("%s / %s = %s, result should be: %s\n", "50", "-65406540", divide("50", "-65406540"), "0");
+	printf("%s / %s = %s, result should be: %s\n", "99999", "33", divide("99999", "33"), "3030"); 
+	printf("%s / %s = %s, result should be: %s\n", "999999", "33", divide("999999", "33"), "30303"); 
 	printf("%s / %s = %s, result should be: %s\n", "640549870897542310246578954612", "984651246541324", divide("640549870897542310246578954612", "984651246541324"), "650534768678282");
 
 
@@ -86,6 +87,8 @@ int main()
 	printf("%s %% %s = %s, result should be: %s\n", "16", "4", modulo("16", "4"), "0");
 	printf("%s %% %s = %s, result should be: %s\n", "17", "4", modulo("17", "4"), "1");
 	printf("%s %% %s = %s, result should be: %s\n", "250", "25", modulo("250", "25"), "0");
+	printf("%s %% %s = %s, result should be: %s\n", "50", "-65406540", modulo("-65406540", "50"), "-65406490");
+	printf("%s %% %s = %s, result should be: %s\n", "-65406540", "50", modulo("-65406540", "50"), "-40");
 	printf("%s %% %s = %s, result should be: %s\n", "9", "3", modulo("9", "3"), "0");
 	printf("%s %% %s = %s, result should be: %s\n", "987", "4", modulo("987", "4"), "3");
 	printf("%s %% %s = %s, result should be: %s\n", "987", "123", modulo("987", "123"), "3");
