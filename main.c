@@ -7,7 +7,7 @@ int main()
 	
 //	ft_atoi_str("398 + 505 / 505 + 8");
 //
-/*
+
 	printf("*****************SUBTRACTION************\n");
  	printf("%d - %d = %s\n", 5, 10, subtract("5", "10"));
  	printf("%d - %d = %s\n", 10, 5, subtract("10", "5"));
@@ -97,11 +97,7 @@ int main()
 	printf("%s %% %s = %s, result should be: %s\n", "984651", "-5647", modulo("984651", "-5647"), "-3574");
 	printf("%s %% %s = %s, result should be: %s\n", "-984651", "5647", modulo("984651", "-5647"), "3574");
 	printf("%s %% %s = %s, result should be: %s\n", "98420000000000000000", "-77", modulo("98420000000000000000", "-77"), "-14");
-<<<<<<< HEAD
 	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "9");
 
-=======
-	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "277");
-*/
 	return (0);
 }
