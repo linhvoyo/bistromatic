@@ -6,6 +6,8 @@ char *modulo(char *dividend, char *divisor)
 	char *multiplier;
 	char *negative_flag;
 
+	if (zeroed(dividend))
+		return ("0");
 	if (zeroed(divisor))
 		return ("Error: Division by 0.");
 	negative_flag = "";
