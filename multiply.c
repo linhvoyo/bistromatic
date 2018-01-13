@@ -32,8 +32,8 @@ char *multiply(char *str1, char *str2)
 {
 	linked_list *list;
 	char *negative_flag;
-	char *str1_copy = ft_strdup(str1);
-	char *str2_copy = ft_strdup(str2);
+	char *multiplicand = ft_strdup(str1);
+	char *multiplier = ft_strdup(str2);
 	char *new;
 	int count;
 
@@ -46,17 +46,17 @@ char *multiply(char *str1, char *str2)
 			(str1[0] != '-' && str2[0] == '-'))
 		negative_flag = "-";
 	if (str1[0] == '-')
-		str1_copy++;
+		multiplicand++;
 	if (str2[0] == '-')
-		str2_copy++;
+		multiplier++;
 	int digit;
-	while (!zeroed(str2_copy))
+	while (!zeroed(multiplier))
 	{
-		digit = pop_digit(str2_copy);
+		digit = pop_digit(multiplier);
 		if (!list)
-			list = create_link(multiply_helper(str1_copy, ft_itoa(digit)));
+			list = create_link(multiply_helper(multiplicand, ft_itoa(digit)));
 		else
-			add_link(&list, pad_right(multiply_helper(str1_copy,
+			add_link(&list, pad_right(multiply_helper(multiplicand,
 							ft_itoa(digit)), count));
 		count++;
 	}

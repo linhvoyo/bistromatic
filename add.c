@@ -1,15 +1,15 @@
 #include "bistromatic.h"
 
-char *add(char *str1, char *str2)
+char *add(char *augend, char *addend)
 {
 	char *num1;
 	char *num2;
 	int i;
 	int value;
 
-	num1 = ft_strdup(str1);
-	num2 = ft_strdup(str2);
-	if (number_cmp(str1, str2) < 0)
+	num1 = ft_strdup(augend);
+	num2 = ft_strdup(addend);
+	if (number_cmp(num1, num2) < 0)
 		swap(&num1, &num2);
 	if (zeroed(num2))
 		return (num1);
