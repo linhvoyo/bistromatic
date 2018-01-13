@@ -1,13 +1,25 @@
 #include "bistromatic.h"
+#include <stdio.h>
 
 int main()
 {
+	printf("%d - %d = %s\n", 5, 10, subtract("5", "10"));
+	printf("%d - %d = %s\n", 5, -10, subtract("5", "-10"));
+
+/*
+	printf("%s \n", divide("-5", "-4"));
+	printf("%s \n", divide("99", "33"));
+	printf("%s \n", divide("99", "-33"));
+	printf("%s \n", divide("-99", "33"));
+	printf("%s \n", divide("-99", "-33"));
+	printf("%s \n", divide("50", "-65406540"));
+*/
 //	printf("%s\n", evaluate_expr("398 + 505 / 505 + 8 * (5 + 10) % 10"));
 //	printf("%s\n", evaluate_expr("398 + 505 / 505 + 8 * (5 + 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000877777777777777777777777777)"));
 	
 //	ft_atoi_str("398 + 505 / 505 + 8");
 //
-
+/*
 	printf("*****************SUBTRACTION************\n");
  	printf("%d - %d = %s\n", 5, 10, subtract("5", "10"));
  	printf("%d - %d = %s\n", 10, 5, subtract("10", "5"));
@@ -74,7 +86,6 @@ int main()
 	printf("%s / %s = %s\n", "10", "3", divide("10", "3"));
 	printf("%s / %s = %s\n", "10", "2", divide("10", "2"));
 	printf("%s / %s = %s\n", "10", "0", divide("10", "0"));
-	printf("%s / %s = %s, result should be: %s\n", "-500", "100", divide("-500", "100"), "-5");
 	printf("%s / %s = %s, result should be: %s\n", "50", "-65406540", divide("50", "-65406540"), "0");
 	printf("%s / %s = %s, result should be: %s\n", "99999", "33", divide("99999", "33"), "3030"); 
 	printf("%s / %s = %s, result should be: %s\n", "999999", "33", divide("999999", "33"), "30303"); 
@@ -89,8 +100,8 @@ int main()
 	printf("%s %% %s = %s, result should be: %s\n", "16", "4", modulo("16", "4"), "0");
 	printf("%s %% %s = %s, result should be: %s\n", "17", "4", modulo("17", "4"), "1");
 	printf("%s %% %s = %s, result should be: %s\n", "250", "25", modulo("250", "25"), "0");
-	printf("%s %% %s = %s, result should be: %s\n", "50", "-65406540", modulo("50", "-65406540"), "-65406540");
-	printf("%s %% %s = %s, result should be: %s\n", "-65406540", "50", modulo("-65406540", "50"), "10");
+	printf("%s %% %s = %s, result should be: %s\n", "50", "-65406540", modulo("-65406540", "50"), "-65406490");
+	printf("%s %% %s = %s, result should be: %s\n", "-65406540", "50", modulo("-65406540", "50"), "-40");
 	printf("%s %% %s = %s, result should be: %s\n", "9", "3", modulo("9", "3"), "0");
 	printf("%s %% %s = %s, result should be: %s\n", "987", "4", modulo("987", "4"), "3");
 	printf("%s %% %s = %s, result should be: %s\n", "987", "123", modulo("987", "123"), "3");
@@ -98,7 +109,7 @@ int main()
 	printf("%s %% %s = %s, result should be: %s\n", "984651", "-5647", modulo("984651", "-5647"), "-3574");
 	printf("%s %% %s = %s, result should be: %s\n", "-984651", "5647", modulo("984651", "-5647"), "3574");
 	printf("%s %% %s = %s, result should be: %s\n", "98420000000000000000", "-77", modulo("98420000000000000000", "-77"), "-14");
-	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "9");
-
+	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "277");
+*/
 	return (0);
 }
