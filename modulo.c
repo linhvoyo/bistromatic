@@ -13,10 +13,13 @@ char *modulo(char *dividend, char *divisor)
 	negative_flag = "";
 	if (is_negative(dividend))
 		dividend++;
-	if (is_negative(divisor) && (negative_flag = "-"))
-		divisor++;
-	if (number_cmp(dividend, divisor) < 0)
+	if (is_negative(divisor) && number_cmp(dividend, divisor) < 0)
 		return (divisor);
+	if (is_negative(divisor))
+	{
+		negative_flag = "-";
+		divisor++;
+	}
 	multiplier = divide(dividend, divisor);
 	result = multiply(multiplier, divisor);
 	if (number_cmp(result, dividend) == 0)

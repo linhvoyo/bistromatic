@@ -87,8 +87,8 @@ int main()
 	printf("%s %% %s = %s, result should be: %s\n", "16", "4", modulo("16", "4"), "0");
 	printf("%s %% %s = %s, result should be: %s\n", "17", "4", modulo("17", "4"), "1");
 	printf("%s %% %s = %s, result should be: %s\n", "250", "25", modulo("250", "25"), "0");
-	printf("%s %% %s = %s, result should be: %s\n", "50", "-65406540", modulo("-65406540", "50"), "-65406490");
-	printf("%s %% %s = %s, result should be: %s\n", "-65406540", "50", modulo("-65406540", "50"), "-40");
+	printf("%s %% %s = %s, result should be: %s\n", "50", "-65406540", modulo("50", "-65406540"), "-65406540");
+	printf("%s %% %s = %s, result should be: %s\n", "-65406540", "50", modulo("-65406540", "50"), "10");
 	printf("%s %% %s = %s, result should be: %s\n", "9", "3", modulo("9", "3"), "0");
 	printf("%s %% %s = %s, result should be: %s\n", "987", "4", modulo("987", "4"), "3");
 	printf("%s %% %s = %s, result should be: %s\n", "987", "123", modulo("987", "123"), "3");
@@ -96,6 +96,7 @@ int main()
 	printf("%s %% %s = %s, result should be: %s\n", "984651", "-5647", modulo("984651", "-5647"), "-3574");
 	printf("%s %% %s = %s, result should be: %s\n", "-984651", "5647", modulo("984651", "-5647"), "3574");
 	printf("%s %% %s = %s, result should be: %s\n", "98420000000000000000", "-77", modulo("98420000000000000000", "-77"), "-14");
-	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "277");
+	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "9");
+
 	return (0);
 }
