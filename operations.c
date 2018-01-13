@@ -122,7 +122,6 @@ char	**closest_whole_num(char *divisor, char *minuend)
 {
 	char **res;
 	char *total;
-	char *tmp;
 	char counter[2];
 	int i;
 	int len;
