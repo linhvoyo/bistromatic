@@ -1,6 +1,6 @@
 #include "bistromatic.h"
 
-char	**closest_whole_num(char *divisor, char *minuend)
+static char **closest_whole_num(char *divisor, char *minuend)
 {
 	char **res;
 	char *total;
