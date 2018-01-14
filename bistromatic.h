@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   bistromatic.h                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 20:10:08 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/13 17:09:16 by hiroshius        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef BISTROMATIC_H
 # define BISTROMATIC_H
 # include "./libft/includes/libft.h"
@@ -46,7 +34,9 @@ void prepend_link(linked_list **list, char *str);
 char *base(char *charset, char *decimal);
 char *value(linked_list *list, int n);
 int size(linked_list *list);
-char *get_closest_base(linked_list *list, char *value);
+char *get_closest_base(linked_list *list, char *value, int *index);
+char *initialize_characters(int length, char c);
+int zeroed_character(char *str, char c);
 
 char push_operator(char **expression);
 char *traverse_parenthical(char **expression);

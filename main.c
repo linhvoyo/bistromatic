@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 	printf("*****************SUBTRACTION************\n");
  	printf("%d - %d = %s\n", 5, 10, subtract("5", "10"));
  	printf("%d - %d = %s\n", 10, 5, subtract("10", "5"));
+ 	printf("%d - %d = %s, result should be %s\n", 16, 16, subtract("16", "16"), "0");
  	printf("%d - %d = %s, result should be: %s\n", 644, -377, subtract("644", "-377"), "1021");
  	printf("%d - %d = %s, result should be: %s\n", 644, 1000090, subtract("644", "1000090"), "-999446");
  	printf("%d - %d = %s, result should be: %s\n", 1000090, 644, subtract("1000090", "644"), "999446");
@@ -131,11 +132,21 @@ int main(int argc, char **argv)
 	printf("%s %% %s = %s, result should be: %s\n", "98420000000000000000", "-77", modulo("98420000000000000000", "-77"), "63");
 	printf("%s %% %s = %s, result should be: %s\n", "-65406540", "-999999999999", modulo("-65406540", "-999999999999"), "-65406540");
 	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "9");
+	printf("%s %% %s = %s, result should be: %s\n", "-7", "-4", modulo("-7", "-4"), "-3");
+	printf("%s %% %s = %s, result should be: %s\n", "-7", "4", modulo("-7", "4"), "-3");
+	printf("%s %% %s = %s, result should be: %s\n", "7", "4", modulo("7", "4"), "3");
+	printf("%s %% %s = %s, result should be: %s\n", "7", "-4", modulo("7", "-4"), "3");
 
+
+	printf("*****************BASE CONVERSION************\n");
 	char *charset;
 	char *decimal;
 	char *correct_result;
-
+	charset = "01";
+	decimal = "1";
+	correct_result = "1";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
 	charset = "0123456789ABCDEF";
 	decimal = "16";
 	correct_result = "10";
@@ -156,8 +167,53 @@ int main(int argc, char **argv)
 	decimal = "1065400";
 	correct_result = "1041B8";
 	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "01";
+	decimal = "1065400";
+	correct_result = "100000100000110111000";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "01";
+	decimal = "5";
+	correct_result = "101";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "01";
+	decimal = "15";
+	correct_result = "1111";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "01";
+	decimal = "16";
+	correct_result = "10000";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789ABC";
+	decimal = "50";
+	correct_result = "3B";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789ABC";
+	decimal = "11";
+	correct_result = "B";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789A";
+	decimal = "231";
+	correct_result = "1A0";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "~^@\\!;i &[]";
+	decimal = "231";
+	correct_result = "^]~";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789ABCDEF";
+	decimal = "98789748978999999999999999999999999966666666666666666699996545694597056";
+	correct_result = "E5050C1073D089A752E28A6018859DC5068A9A7133421F3E40BDA887FC0";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
 
 /*
+	char buf[BUFF_SIZE + 1];
+	int ret;
+	char *exp;
+	char *tmp;
+
+	exp = ft_strnew(0);
+	tmp = ft_strnew(0);
+	if (argc != 3)
+
 	char buf[BUFF_SIZE + 1];
 	int ret;
 	char *exp;

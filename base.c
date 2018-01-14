@@ -1,39 +1,30 @@
 #include "bistromatic.h"
 
-char *base(char *charset, char *decimal)
+char			*base(char *charset, char *decimal)
 {
-	char *new;
-	char *result;
-	char *base_system;
-	linked_list *powers;
-	int i;
-	int index;
+	char		*strings[3];
+	int			ints[3];
+	linked_list	*powers;
 
-	if (zeroed(decimal))
+	if ((ints[1] = 0) || zeroed(decimal))
 		return ("0");
-	if (number_cmp("1", decimal) == 0)
-		return ("1");
-	base_system = ft_itoa(ft_strlen(charset));
+	strings[2] = ft_itoa(ft_strlen(charset));
 	powers = create_link("1");
-	result = "1";
-	while (number_cmp(result, decimal) < 0)
-	{
-		result = multiply(result, base_system);
-		if (number_cmp(result, decimal) < 0)
-			prepend_link(&powers, result);
-	}
-	new = initialize_zero(size(powers));
-	index = 0;
-	while (new[index])
-	{
-		result = get_closest_base(powers, decimal);
-		printf("result: %s\n", result);
-		i = ft_atoi(divide(decimal, result));
-		printf("i: %d\n", i);
-		decimal = subtract(decimal, multiply(divide(decimal, result), result));
-		printf("decimal: %s\n", decimal);
-		new[index] = charset[i];
-		index++;
-	}
-	return (new);
+	strings[1] = "1";
+	while (number_cmp(strings[1], decimal) < 0 &&
+			(strings[1] = multiply(strings[1], strings[2])))
+		if (number_cmp(strings[1], decimal) <= 0)
+			prepend_link(&powers, strings[1]);
+	strings[0] = initialize_characters(size(powers), charset[0]);
+	while (strings[0][ints[1]++])
+		if (!zeroed(decimal) && (ints[2] = ints[1]))
+		{
+			strings[1] = get_closest_base(powers, decimal, &ints[2]);
+			ft_putstr("");
+			ints[0] = ft_atoi(divide(decimal, strings[1]));
+			decimal = subtract(decimal,
+					multiply(divide(decimal, strings[1]), strings[1]));
+			strings[0][ints[2]] = charset[ints[0]];
+		}
+	return (strings[0]);
 }
