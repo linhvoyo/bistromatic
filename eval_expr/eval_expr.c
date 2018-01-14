@@ -6,7 +6,7 @@
 /*   By: husui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 12:51:13 by husui             #+#    #+#             */
-/*   Updated: 2018/01/13 17:38:49 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/14 10:05:14 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,11 @@ int		evaluate_expr(char *exp)
 	return (handle_expression(&exp, 1));
 }
 
-int		main()
+int		main(int argc, char **argv)
 {
-//	ft_putnbr(evaluate_expr("398 + 505 / 505 + 8 * (5 + 10) % 10"));
+	if (argc != 2)
+		return (0);
+/*//	ft_putnbr(evaluate_expr("398 + 505 / 505 + 8 * (5 + 10) % 10"));
 //	ft_putchar('\n');
 	ft_putnbr(evaluate_expr("-(12-(4*32))"));
 	ft_putchar('\n');
@@ -113,6 +115,7 @@ int		main()
 //	ft_putchar('\n');
 //	ft_putnbr(evaluate_expr("(12-(4*32))"));
 //	ft_putchar('\n');
-	ft_putnbr(evaluate_expr("(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*((12-98*42)*(16+63-50/3))"));
+	ft_putnbr(evaluate_expr("(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*((12-98*42)*(16+63-50/3))"));*/
+	printf("%d\n", evaluate_expr(argv[1]));
 	return (0);
 }

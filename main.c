@@ -262,6 +262,53 @@ int main(int argc, char **argv)
 	printf("%s of base %lu (%s) to base 10 = %s, result should be: %s\n", number, ft_strlen(charset), charset, get_decimal(charset, number), correct_result);
 
 
+	printf("********************************************\n");
+	printf("*****************EVAL EXPRESSION************\n");
+	printf("*****************(CORRECT INPUTS)************\n");
+	char *expression;
+	expression = "3+6";
+	correct_result = "9";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	expression = "--++-6*12";
+	correct_result = "-72";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	expression = "-(12-(4*32))";
+	correct_result = "116";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	expression = "-(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-(12-98*42)*(16+63-50/3))";
+	correct_result = "-744629760";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	expression = "--(1)";
+	correct_result = "1";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	expression = "+(1)";
+	correct_result = "1";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	expression = "++(1)";
+	correct_result = "1";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	expression = "((-(-1*((-(-(-(4)))))))+5*-(3+2))";
+	correct_result = "-29";
+	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	printf("*****************STRING REPLACEMENT************\n");
+	char *replaced;
+	char *replacer;
+	expression = "-(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-(12-98*42)*(16+63-50/3))";
+	correct_result = "-1*(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-1*(12-98*42)*(16+63-50/3))";
+	replaced = "-(";
+	replacer = "-1*(";
+	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer), correct_result);
+	expression = "------(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-(12-98*42)*(16+63-50/3))";
+	correct_result = "+++(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-(12-98*42)*(16+63-50/3))";
+	replaced = "--";
+	replacer = "+";
+	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer), correct_result);
+	expression = "+(";
+	correct_result = "+1*(";
+	replaced = "+(";
+	replacer = "1+*(";
+	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer), correct_result);
+
 /*
 	char buf[BUFF_SIZE + 1];
 	int ret;
