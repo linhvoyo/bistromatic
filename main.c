@@ -125,6 +125,29 @@ int main()
 	printf("%s %% %s = %s, result should be: %s\n", "-65406540", "-999999999999", modulo("-65406540", "-999999999999"), "-65406540");
 	printf("%s %% %s = %s, result should be: %s\n", "99999", "33", modulo("99999", "33"), "9");
 
-	printf("%s\n", base("0123456789ABCDEF", "1000"));
+	char *charset;
+	char *decimal;
+	char *correct_result;
+
+	charset = "0123456789ABCDEF";
+	decimal = "16";
+	correct_result = "10";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789ABCDEF";
+	decimal = "1000";
+	correct_result = "3E8";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789ABCDEF";
+	decimal = "255";
+	correct_result = "FF";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789ABCDEF";
+	decimal = "256";
+	correct_result = "100";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+	charset = "0123456789ABCDEF";
+	decimal = "1065400";
+	correct_result = "1041B8";
+	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
 	return (0);
 }

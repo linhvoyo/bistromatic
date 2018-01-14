@@ -27,13 +27,10 @@ char *base(char *charset, char *decimal)
 	while (new[index])
 	{
 		result = get_closest_base(powers, decimal);
-		divide = subtract(decimal, multiply(divide(decimal, result));
 		i = ft_atoi(divide(decimal, result));
+		decimal = subtract(decimal, multiply(divide(decimal, result), result));
 		new[index] = charset[i];
 		index++;
-		printf("CHARACTER: %c\n", charset[i]);
 	}
-
-	print_linked_list(powers);
-	return ("test");
+	return (new);
 }
