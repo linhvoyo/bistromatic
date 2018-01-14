@@ -1,7 +1,10 @@
 #include "bistromatic.h"
 #include <stdio.h>
+#define BUFF_SIZE 2
 
-int main()
+int validate(char *exp,char *base, char *size);
+
+int main(int argc, char **argv)
 {
 	printf("%d - %d = %s\n", 26, -19, subtract("26", "-19"));
 	printf("%d - %d = %s\n", 26, 19, subtract("26", "19"));
@@ -149,5 +152,40 @@ int main()
 	decimal = "1065400";
 	correct_result = "1041B8";
 	printf("%s to base %lu (%s) = %s, result should be: %s\n", decimal, ft_strlen(charset), charset, base(charset, decimal), correct_result);
+
+/*
+	char buf[BUFF_SIZE + 1];
+	int ret;
+	char *exp;
+	char *tmp;
+
+	exp = ft_strnew(0);
+	tmp = ft_strnew(0);
+	if (argc != 3)
+	{
+		ft_putstr("syntax error\n");
+		return (-1);
+	}
+	while ((ret = read(0, buf, BUFF_SIZE)))
+	{
+		buf[ret] = '\0';
+		tmp = exp;
+		exp = ft_strjoin(tmp, buf);
+		free(tmp);
+	}
+	exp[ft_strlen(exp) - 1] = '\0';
+	if (!(validate(exp, argv[1], argv[2])))
+	{
+		ft_putstr("syntax error\n");
+		return (-1);
+	}
+	else
+	{
+		puts(exp);
+		ft_putstr(evaluate_expr(exp));
+	}
+	close(0);
+	ft_putchar('\n');
+*/
 	return (0);
 }

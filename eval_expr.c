@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 18:40:08 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/12 20:55:41 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/13 17:47:41 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,10 @@ char *evaluate_expr(char *exp)
 {
 //	puts(exp);
 //	printf("%s\n", handle_expression(&exp, "1"));
+	if (exp[0] == '-' && exp[1] == '(')
+	{
+		exp++;
+		return (handle_expression(&exp, "-1"));
+	}
 	return (handle_expression(&exp, "1"));
 }

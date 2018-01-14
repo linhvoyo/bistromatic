@@ -6,7 +6,7 @@
 /*   By: husui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 12:51:13 by husui             #+#    #+#             */
-/*   Updated: 2018/01/12 22:56:41 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/13 17:38:49 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,24 @@ int		handle_expression(char **expression, int sign)
 int		evaluate_expr(char *exp)
 {
 //	puts(exp);
+	if (exp[0] == '-' && exp[1] == '(')
+	{
+		exp++;
+		return (handle_expression(&exp, -1));
+	}
 	return (handle_expression(&exp, 1));
 }
 
 int		main()
 {
-	ft_putnbr(evaluate_expr("398 + 505 / 505 + 8 * (5 + 10) % 10"));
+//	ft_putnbr(evaluate_expr("398 + 505 / 505 + 8 * (5 + 10) % 10"));
+//	ft_putchar('\n');
+	ft_putnbr(evaluate_expr("-(12-(4*32))"));
 	ft_putchar('\n');
+//	ft_putnbr(evaluate_expr("-12-(4*32)"));
+//	ft_putchar('\n');
+//	ft_putnbr(evaluate_expr("(12-(4*32))"));
+//	ft_putchar('\n');
+	ft_putnbr(evaluate_expr("(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*((12-98*42)*(16+63-50/3))"));
 	return (0);
 }
