@@ -27,8 +27,11 @@ char *base(char *charset, char *decimal)
 	while (new[index])
 	{
 		result = get_closest_base(powers, decimal);
+		printf("result: %s\n", result);
 		i = ft_atoi(divide(decimal, result));
+		printf("i: %d\n", i);
 		decimal = subtract(decimal, multiply(divide(decimal, result), result));
+		printf("decimal: %s\n", decimal);
 		new[index] = charset[i];
 		index++;
 	}

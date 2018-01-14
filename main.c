@@ -6,6 +6,10 @@ int validate(char *exp,char *base, char *size);
 
 int main(int argc, char **argv)
 {
+	if (argc)
+		printf("Arbitrary argc usage\n");
+	if (argv)
+		printf("Arbitrary argv usage\n");
 	printf("%d - %d = %s\n", 26, -19, subtract("26", "-19"));
 	printf("%d - %d = %s\n", 26, 19, subtract("26", "19"));
 	printf("%d - %d = %s\n", -26, -19, subtract("-26", "-19"));

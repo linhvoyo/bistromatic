@@ -68,7 +68,7 @@ int check_operands(char *exp,char *base)
 
 int check_size(char *exp, char *size)
 {
-	if (ft_strlen(exp) != ft_atoi(size))
+	if ((int)ft_strlen(exp) != ft_atoi(size))
 		return (0);
 	puts("size correct");
 	return (1);
