@@ -28,6 +28,7 @@ int main()
 	printf("*****************SUBTRACTION************\n");
  	printf("%d - %d = %s\n", 5, 10, subtract("5", "10"));
  	printf("%d - %d = %s\n", 10, 5, subtract("10", "5"));
+ 	printf("%d - %d = %s, result should be: %s\n", 644, -377, subtract("644", "-377"), "-1021");
  	printf("%d - %d = %s, result should be: %s\n", 644, 1000090, subtract("644", "1000090"), "-999446");
  	printf("%d - %d = %s, result should be: %s\n", 1000090, 644, subtract("1000090", "644"), "999446");
 	printf("%d - %d = %s\n", 200, 200, subtract("200", "200"));
