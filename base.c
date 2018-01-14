@@ -1,13 +1,13 @@
 #include "bistromatic.h"
 
-char			*base(char *charset, char *decimal)
+static char		*base_positive(char *charset, char *decimal)
 {
 	char		*strings[3];
 	int			ints[3];
 	linked_list	*powers;
 
 	if ((ints[1] = 0) || zeroed(decimal))
-		return ("0");
+		return (stringerize(charset[0]));
 	strings[2] = ft_itoa(ft_strlen(charset));
 	powers = create_link("1");
 	strings[1] = "1";
@@ -27,4 +27,17 @@ char			*base(char *charset, char *decimal)
 			strings[0][ints[2]] = charset[ints[0]];
 		}
 	return (strings[0]);
+}
+
+char			*base(char *charset, char *decimal)
+{
+	char *sign;
+
+	sign = "";
+	if (*decimal == '-')
+	{
+		sign = "-";
+		decimal++;
+	}
+	return ft_strjoin(sign, base_positive(charset, decimal));
 }

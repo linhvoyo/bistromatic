@@ -37,6 +37,10 @@ int size(linked_list *list);
 char *get_closest_base(linked_list *list, char *value, int *index);
 char *initialize_characters(int length, char c);
 int zeroed_character(char *str, char c);
+int get_index(char *array, char c);
+char *power(char *number, char *exponent);
+char *get_decimal(char *charset, char *string);
+char *stringerize(char c);
 
 char push_operator(char **expression);
 char *traverse_parenthical(char **expression);
