@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 09:07:35 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/15 09:13:31 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/15 09:29:06 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,19 @@ void	shift_right(char **string_pointer)
 		return ;
 	while (str[i])
 	{
-		if (!temp2)
+		if (!temp2 && (temp = str[i]))
 		{
-			temp = str[i];
 			temp2 = str[i + 1];
 			str[i] = '0';
 		}
 		else
 		{
-			if (!alternate)
-			{
-				str[i] = temp;
-				temp = str[i + 1];
+			if (!alternate && (str[i] = temp)
+					&& (temp = str[i + 1]))
 				alternate = 1;
-			}
-			else if (alternate)
-			{
-				str[i] = temp2;
-				temp2 = str[i + 1];
+			else if (alternate && (str[i] = temp2)
+					&& (temp2 = str[i + 1]))
 				alternate = 0;
-			}
 		}
 		i++;
 	}

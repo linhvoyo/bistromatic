@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 23:46:40 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/15 09:12:08 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/15 09:20:24 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static char	*get_chunk(char *charset, char *expression)
 	return (substring(expression, i, j));
 }
 
-char *translate_to_decimal(char *charset, char *expression)
+char		*translate_to_decimal(char *charset, char *expression)
 {
-	char *chunk;
-	char *charset_duplicate;
-	char *expression_duplicate;
-	
+	char	*chunk;
+	char	*charset_duplicate;
+	char	*expression_duplicate;
+
 	charset_duplicate = ft_strdup(charset);
 	expression_duplicate = ft_strdup(expression);
 	chunk = get_chunk(charset, expression);

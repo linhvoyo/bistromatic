@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 23:39:02 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/15 08:48:31 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/15 09:20:00 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char		**closest_whole_num(char *divisor, char *minuend)
 	return (res);
 }
 
-int				div_handle_negs(char **dividend, char **divisor, char **sign)
+int			div_handle_negs(char **dividend, char **divisor, char **sign)
 {
 	if (zeroed(*divisor))
 		return (0);
@@ -61,12 +61,12 @@ int				div_handle_negs(char **dividend, char **divisor, char **sign)
 	return (1);
 }
 
-char			*divide(char *dividend, char *divisor)
+char		*divide(char *dividend, char *divisor)
 {
 	VARS;
 	VARS_2;
 	if (div_handle_negs(&dividend, &divisor, &sign) == 0)
-		return ("Error: Division by zero.");
+		return ("Divide by zero");
 	if (number_cmp(dividend, divisor) < 0)
 		return ("0");
 	start_len = ft_strlen(divisor);
