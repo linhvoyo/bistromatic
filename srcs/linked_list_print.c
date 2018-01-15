@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 void	print_linked_list(linked_list *list)
 {

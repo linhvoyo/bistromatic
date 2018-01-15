@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 static char *multiply_helper(char *str1, char *str2)
 {

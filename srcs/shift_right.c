@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 void shift_right(char **string_pointer)
 {

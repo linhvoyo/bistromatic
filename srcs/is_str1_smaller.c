@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 int is_str1_smaller(char *str1, char *str2)
 {

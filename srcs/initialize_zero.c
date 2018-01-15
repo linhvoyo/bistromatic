@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 char *initialize_zero(int length)
 {

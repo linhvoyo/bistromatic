@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 char *modulo(char *dividend, char *divisor)
 {

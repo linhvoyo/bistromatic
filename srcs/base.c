@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 static char		*base_positive(char *charset, char *decimal)
 {

@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 char *get_closest_base(linked_list *list, char *value, int *index)
 {

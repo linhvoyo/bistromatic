@@ -1,5 +1,5 @@
-#include "bistromatic.h"
-#include <stdio.h>
+#include "../includes/bistromatic.h"
+
 #define BUFF_SIZE 2
 
 //int validate(char *exp,char *base, char *size);

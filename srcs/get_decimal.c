@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 static char *get_decimal_positive(char *charset, char *string)
 {

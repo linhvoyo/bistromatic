@@ -1,4 +1,4 @@
-#include "bistromatic.h"
+#include "../includes/bistromatic.h"
 
 static char *get_chunk(char *charset, char *expression)
 {
