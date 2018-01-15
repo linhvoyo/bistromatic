@@ -1,12 +1,27 @@
-#include "bistromatic.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   multiply.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 08:13:13 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/15 08:48:03 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static char *multiply_helper(char *str1, char *str2)
+#include "bistromatic.h"
+#define V1 linked_list *list;char *negative_flag;char *new;int count;
+#define V char *multiplicand=ft_strdup(str1);char *multiplier=ft_strdup(str2);
+#define INIT V1; V; count = 0; list = 0;
+
+static char	*multiply_helper(char *str1, char *str2)
 {
-	char *row;
-	int i;
-	int value;
-	int carry;
-	int singles_digit;
+	char	*row;
+	int		i;
+	int		value;
+	int		carry;
+	int		singles_digit;
 
 	i = ft_strlen(str1);
 	row = initialize_zero(i + ft_strlen(str2));
@@ -27,17 +42,9 @@ static char *multiply_helper(char *str1, char *str2)
 	return (row);
 }
 
-char *multiply(char *str1, char *str2)
+char		*multiply(char *str1, char *str2)
 {
-	linked_list *list;
-	char *negative_flag;
-	char *multiplicand = ft_strdup(str1);
-	char *multiplier = ft_strdup(str2);
-	char *new;
-	int count;
-
-	count = 0;
-	list = 0;
+	INIT;
 	if (zeroed(str1) || zeroed(str2))
 		return ("0");
 	negative_flag = "";
@@ -48,15 +55,14 @@ char *multiply(char *str1, char *str2)
 		multiplicand++;
 	if (str2[0] == '-')
 		multiplier++;
-	int digit;
 	while (!zeroed(multiplier))
 	{
-		digit = pop_digit(multiplier);
 		if (!list)
-			list = create_link(multiply_helper(multiplicand, ft_itoa(digit)));
+			list = create_link(multiply_helper(multiplicand,
+						ft_itoa(pop_digit(multiplier))));
 		else
 			add_link(&list, pad_right(multiply_helper(multiplicand,
-							ft_itoa(digit)), count));
+							ft_itoa(pop_digit(multiplier))), count));
 		count++;
 	}
 	new = ft_strjoin(negative_flag, summate_linked_list(list));

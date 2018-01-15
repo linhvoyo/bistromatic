@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 23:46:40 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/15 00:05:39 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/15 08:50:04 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ char		*translate_to_decimal(char *charset, char *expression)
 	{
 		decimal = get_decimal(charset, chunk);
 		while (get_index(charset, expression[i]) < 0)
-			if (i++ >= ft_strlen(expression))
+			if (i++ >= (int)ft_strlen(expression))
 				break ;
-		if (i >= ft_strlen(expression))
+		if (i >= (int)ft_strlen(expression))
 			break ;
 		j = ft_strlen(decimal);
 		expression = ft_strjoin(

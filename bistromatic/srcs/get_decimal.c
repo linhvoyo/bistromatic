@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_decimal.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 06:56:52 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/15 07:00:05 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
 
-static char *get_decimal_positive(char *charset, char *string)
+static char		*get_decimal_positive(char *charset, char *string)
 {
-	char *strings[2];
-	int ints[2];
-	linked_list *summands;
-	char *sign;
+	char		*strings[2];
+	int			ints[2];
+	linked_list	*summands;
+	char		*sign;
 
 	if (zeroed_character(string, charset[0]))
 		return ("0");
@@ -28,7 +40,7 @@ static char *get_decimal_positive(char *charset, char *string)
 	return (summate_linked_list(summands));
 }
 
-char *get_decimal(char *charset, char *string)
+char			*get_decimal(char *charset, char *string)
 {
 	char *sign;
 
@@ -38,5 +50,5 @@ char *get_decimal(char *charset, char *string)
 		sign = "-";
 		string++;
 	}
-	return ft_strjoin(sign, get_decimal_positive(charset, string));
+	return (ft_strjoin(sign, get_decimal_positive(charset, string)));
 }
