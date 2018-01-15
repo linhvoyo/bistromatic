@@ -318,7 +318,7 @@ void	unit_test()
 	printf("*****************EXPRESSION TRANSLATION TO BASE 10**************\n");
 	charset = "~^@\\!;i &[]";
 	expression = "-(@-(;*\\!@))";
-	correct_result = "";
+	correct_result = "-(2-(5*409))";
 	printf("Translation of expression \"%s\" using charset (%s) to base 10 = %s, result should be: %s\n", expression, charset, translate_to_decimal(charset, expression), correct_result);
 	printf("%s\n", base(charset, evaluate_expr(translate_to_decimal(charset, expression))));
 
