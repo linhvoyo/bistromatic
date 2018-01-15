@@ -1,8 +1,8 @@
 #include "bistromatic.h"
 
-void swap(char **str1, char **str2)
+void		swap(char **str1, char **str2)
 {
-	char *temp;
+	char	*temp;
 
 	temp = (*str1);
 	(*str1) = (*str2);

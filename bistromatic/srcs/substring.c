@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   substring.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 09:09:17 by hiroshius         #+#    #+#             */
+/*   Updated: 2018/01/15 09:09:18 by hiroshius        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
 
-char *substring(char *str, int i, int j)
+char		*substring(char *str, int i, int j)
 {
-	char *new;
-	char *iter;
+	char	*new;
+	char	*iter;
 
 	new = ft_strdup(str);
 	iter = new;
