@@ -28,7 +28,6 @@ char *translate_to_decimal(char *charset, char *expression)
 	chunk = get_chunk(charset, expression);
 	while (ft_strlen(chunk) > 0)
 	{
-		printf("Chunk: %s\n", chunk);
 		expression = replace(expression, chunk, get_decimal(charset, chunk), 0);
 		chunk = get_chunk(charset, expression);
 	}

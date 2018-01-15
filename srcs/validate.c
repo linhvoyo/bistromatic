@@ -19,7 +19,7 @@ int check_operators(char *exp)
 	int open;
 	int close;
 
-	operators = strdup("+-*/%");
+	operators = strdup("()+-*/%");
 
 	i = 0;
 	open = 0;
@@ -33,6 +33,12 @@ int check_operators(char *exp)
 		if (exp[i] == '(' && i != 0)
 			if (!(does_exist(operators, exp[i-1])))
 				return (0);
+		if (exp[i] == '*' && exp[i + 1] == '*')
+			return (0);
+		if (exp[i] == '/' && exp[i + 1] == '/')
+			return (0);
+		if (exp[i] == '%' && exp[i + 1] == '%')
+			return (0);
 		i++;
 	}
 	if (close != open)

@@ -1,6 +1,6 @@
 #ifndef BISTROMATIC_H
 # define BISTROMATIC_H
-# include "./libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 # include <stdio.h>
 
 typedef struct              s_linked_list

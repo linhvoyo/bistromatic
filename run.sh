@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #make -C libft/ fclean && make -C libft/ && make clean -C libft/
-gcc -g -I./libft/includes/ -L./libft -lft  *.c
-gcc -c -g -I libft/includes *.c
-rm *.o
+gcc -g -I./includes/ -L./libft -lft -o calc ./srcs/*.c
+#gcc -c -g -I./includes ./srcs/*.c
+#rm *.o
 
