@@ -42,7 +42,7 @@ char *power(char *number, char *exponent);
 char *get_decimal(char *charset, char *string);
 char *stringerize(char c);
 char *substring(char *str, int i, int j);
-char *replace(char *input, char *replaced, char *replacer);
+char *replace(char *input, char *replaced, char *replacerint, int repeat);
 char *translate_to_decimal(char *charset, char *expression);
 
 char push_operator(char **expression);

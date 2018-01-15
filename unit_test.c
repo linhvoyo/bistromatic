@@ -304,20 +304,23 @@ void	unit_test()
 	correct_result = "-1*(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-1*(12-98*42)*(16+63-50/3))";
 	replaced = "-(";
 	replacer = "-1*(";
-	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer), correct_result);
+	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer, 1), correct_result);
 	expression = "------(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-(12-98*42)*(16+63-50/3))";
 	correct_result = "+++(12*(13+15/5*(6/(12+14%(30%5+(10*25)-46)+16)-20)/43)*20)*(-(12-98*42)*(16+63-50/3))";
 	replaced = "--";
 	replacer = "+";
-	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer), correct_result);
+	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer, 1), correct_result);
 	expression = "+(";
 	correct_result = "+1*(";
 	replaced = "+(";
 	replacer = "1+*(";
-	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer), correct_result);
+	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer, 1), correct_result);
 	printf("*****************EXPRESSION TRANSLATION TO BASE 10**************\n");
 	charset = "~^@\\!;i &[]";
 	expression = "-(@-(;*\\!@))";
+				//-(2-(5*342)) in base 11 system;
+				//~^@\!;i &[]
+				//143A
 	correct_result = "-(2-(5*409))";
 	printf("Translation of expression \"%s\" using charset (%s) to base 10 = %s, result should be: %s\n", expression, charset, translate_to_decimal(charset, expression), correct_result);
 	printf("%s\n", base(charset, evaluate_expr(translate_to_decimal(charset, expression))));

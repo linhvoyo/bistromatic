@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 18:40:08 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/14 19:46:05 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/14 21:13:23 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,9 +130,9 @@ char *evaluate_expr(char *exp)
 {
 //	puts(exp);
 //	printf("%s\n", handle_expression(&exp, "1"));
-	exp = replace(exp, "--", "+");
-	exp = replace(exp, "+(", "+1*(");
-	exp = replace(exp, "-(", "-1*(");
+	exp = replace(exp, "--", "+", 1);
+	exp = replace(exp, "+(", "+1*(", 1);
+	exp = replace(exp, "-(", "-1*(", 1);
 	/*
 	if (exp[0] == '-' && exp[1] == '(')
 	{

@@ -5,7 +5,7 @@
 ** "--" --> "+"
 */
 
-char *replace(char *input, char *replaced, char *replacer)
+char *replace(char *input, char *replaced, char *replacer, int repeat)
 {
 	char *new;
 	char *replaced_location;
@@ -25,6 +25,8 @@ char *replace(char *input, char *replaced, char *replacer)
 				ft_strjoin(substring(new, 0, i - 1), replacer),
 				substring(new, i + j, ft_strlen(new))
 				);
+		if (!repeat)
+			break;
 	}
 	return (new);
 }
