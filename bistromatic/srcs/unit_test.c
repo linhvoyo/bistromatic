@@ -320,6 +320,14 @@ void	unit_test()
 	expression = "-(@-(;*!@))";
 	correct_result = "-(2-(4*32))";
 	printf("Translation of expression \"%s\" using charset (\"%s\", base %lu) to base 10 = %s, result should be: %s\n", expression, charset, ft_strlen(charset), translate_to_decimal(charset, expression), correct_result);
+	charset = "0123456789ABCDEF";
+	expression = "F+F";
+	correct_result = "15+15";
+	printf("Translation of expression \"%s\" using charset (\"%s\", base %lu) to base 10 = %s, result should be: %s\n", expression, charset, ft_strlen(charset), translate_to_decimal(charset, expression), correct_result);
+	charset = "0123456789ABCDEF";
+	expression = "F";
+	correct_result = "15";
+	printf("Translation of expression \"%s\" using charset (\"%s\", base %lu) to base 10 = %s, result should be: %s\n", expression, charset, ft_strlen(charset), translate_to_decimal(charset, expression), correct_result);
 	charset = "0123456789";
 	expression = "966+666";
 	printf("Translating base 10 to base 10: %s = %s\n", expression, translate_to_decimal(charset, expression));
