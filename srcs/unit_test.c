@@ -318,10 +318,18 @@ void	unit_test()
 	printf("*****************EXPRESSION TRANSLATION TO BASE 10**************\n");
 	charset = "~^@!;i &[]";
 	expression = "-(@-(;*!@))";
-				//-(2-(4*32)) in base 10 system;
-				//~^@!;i &[]
-	correct_result = "-(2-(5*409))";
-	printf("Translation of expression \"%s\" using charset (%s) to base 10 = %s, result should be: %s\n", expression, charset, translate_to_decimal(charset, expression), correct_result);
-	printf("%s\n", base(charset, evaluate_expr(translate_to_decimal(charset, expression))));
-	usleep(100000);
+	correct_result = "-(2-(4*32))";
+	printf("Translation of expression \"%s\" using charset (\"%s\", base %lu) to base 10 = %s, result should be: %s\n", expression, charset, ft_strlen(charset), translate_to_decimal(charset, expression), correct_result);
+	charset = "0123456789";
+	expression = "966+666";
+	printf("Translating base 10 to base 10: %s = %s\n", expression, translate_to_decimal(charset, expression));
+	charset = "0123456789";
+	expression = "1+1";
+	printf("Translating base 10 to base 10: %s = %s\n", expression, translate_to_decimal(charset, expression));
+	charset = "0123456789";
+	expression = "1";
+	printf("Translating base 10 to base 10: %s = %s\n", expression, translate_to_decimal(charset, expression));
+	charset = "0123456789";
+	expression = "-555";
+	printf("Translating base 10 to base 10: %s = %s\n", expression, translate_to_decimal(charset, expression));
 }
