@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 22:58:59 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/15 08:49:55 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/15 09:03:22 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,12 @@ char						*pad_left(char *s1, int n);
 char						*pad_right(char *str, int number_of_zeros);
 int							pop_digit(char *str);
 
+char						*power(char *number, char *exponent);
+char						*replace(char *input, char *replaced, char *replacerint, int repeat);
 
+char						*stringerize(char c);
+char						*subtract(char *s1, char *s2);
 
-char *subtract(char *s1, char *s2);
 void truncate_zeros(char **str);
 void shift_right(char **string_pointer);
 
@@ -70,10 +73,7 @@ int zeroed(char *str);
 void swap(char **str1, char **str2);
 char *value(linked_list *list, int n);
 int zeroed_character(char *str, char c);
-char *power(char *number, char *exponent);
-char *stringerize(char c);
 char *substring(char *str, int i, int j);
-char *replace(char *input, char *replaced, char *replacerint, int repeat);
 char *translate_to_decimal(char *charset, char *expression);
 
 

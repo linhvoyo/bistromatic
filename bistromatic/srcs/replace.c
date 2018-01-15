@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   replace.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 08:55:55 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/15 08:57:23 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
 
 /*
@@ -5,12 +17,12 @@
 ** "--" --> "+"
 */
 
-char *replace(char *input, char *replaced, char *replacer, int repeat)
+char	*replace(char *input, char *replaced, char *replacer, int repeat)
 {
-	char *new;
-	char *replaced_location;
-	int i;
-	int j;
+	char	*new;
+	char	*replaced_location;
+	int		i;
+	int		j;
 
 	if (!ft_strstr(input, replaced))
 		return (input);
@@ -23,10 +35,9 @@ char *replace(char *input, char *replaced, char *replacer, int repeat)
 			i++;
 		new = ft_strjoin(
 				ft_strjoin(substring(new, 0, i - 1), replacer),
-				substring(new, i + j, ft_strlen(new))
-				);
+				substring(new, i + j, ft_strlen(new)));
 		if (!repeat)
-			break;
+			break ;
 	}
 	return (new);
 }
