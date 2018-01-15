@@ -43,6 +43,7 @@ char *get_decimal(char *charset, char *string);
 char *stringerize(char c);
 char *substring(char *str, int i, int j);
 char *replace(char *input, char *replaced, char *replacer);
+char *translate_to_decimal(char *charset, char *expression);
 
 char push_operator(char **expression);
 char *traverse_parenthical(char **expression);

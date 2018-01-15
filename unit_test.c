@@ -282,6 +282,21 @@ void	unit_test()
 	expression = "((-(-1*((-(-(-(4)))))))+5*-(3+2))";
 	correct_result = "-29";
 	printf("%s = %s, result should be: %s\n", expression, evaluate_expr(expression), correct_result);
+	printf("*****************SUBSTRING*********************\n");
+	char *string;
+	int i;
+	int j;
+	string = "test";
+	i = 0;
+	j = 0;
+	printf("Getting substring from %d to %d of %s = %s\n", i, j, string, substring(string, i, j));
+	string = "test";
+	i = 3;
+	j = 3;
+	printf("Getting substring from %d to %d of %s = %s\n", i, j, string, substring(string, i, j));
+	printf("********************GET_INDEX******************\n");
+	string = "test";
+	printf("Using get_index for '\\0' on %s = %d, result should be -1\n", string, get_index(string, '\0'));
 	printf("*****************STRING REPLACEMENT************\n");
 	char *replaced;
 	char *replacer;
@@ -300,5 +315,11 @@ void	unit_test()
 	replaced = "+(";
 	replacer = "1+*(";
 	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer), correct_result);
+	printf("*****************EXPRESSION TRANSLATION TO BASE 10**************\n");
+	charset = "~^@\\!;i &[]";
+	expression = "-(@-(;*\\!@))";
+	correct_result = "";
+	printf("Translation of expression \"%s\" using charset (%s) to base 10 = %s, result should be: %s\n", expression, charset, translate_to_decimal(charset, expression), correct_result);
+	printf("%s\n", base(charset, evaluate_expr(translate_to_decimal(charset, expression))));
 
 }

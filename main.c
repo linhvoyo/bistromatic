@@ -6,7 +6,12 @@
 
 int main(int argc, char **argv)
 {
-	//unit_test();
+	if (argc)
+		;
+	if (argv)
+		;
+	unit_test();
+	/*
 	char buf[BUFF_SIZE + 1];
 	int ret;
 	char *exp;
@@ -41,4 +46,5 @@ int main(int argc, char **argv)
 	close(0);
 	ft_putchar('\n');
 	return (0);
+	*/
 }
