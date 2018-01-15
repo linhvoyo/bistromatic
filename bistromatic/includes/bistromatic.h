@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 22:58:59 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/15 09:10:57 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/15 09:15:22 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ int							zeroed_character(char *str, char c);
 char						*substring(char *str, int i, int j);
 
 void						unit_test();
-int does_exist(char *str, char c);
-int check_operators(char *exp);
-int check_operands(char *exp, char *base);
-int check_size(char *exp, char *size);
-int validate(char *exp,char *base, char *size);
+int							does_exist(char *str, char c);
+int							check_operators(char *exp);
+int 						check_operands(char *exp, char *base);
+int							check_size(char *exp, char *size);
+
+int							validate(char *exp,char *base, char *size);
 #endif
