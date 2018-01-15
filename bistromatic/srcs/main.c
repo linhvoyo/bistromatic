@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 08:07:04 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/15 08:36:45 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/15 09:05:12 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int	main(int argc, char **argv)
 {
-	unit_test();
 	VARS;
 	tmp = ft_strnew(0);
 	if (argc != 3)
@@ -38,10 +37,10 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	else
-	{
-		ft_putstr(evaluate_expr(exp));
-//		ft_putstr(base(argv[1], evaluate_expr(translate_to_decimal(argv[1], exp))));
-	}
-	close(0);
+		if (!ft_strcmp("0123456789", argv[1]))
+			ft_putstr(evaluate_expr(exp));
+		else
+			ft_putstr(base(argv[1], evaluate_expr(
+							translate_to_decimal(argv[1], exp))));
 	return (0);
 }
