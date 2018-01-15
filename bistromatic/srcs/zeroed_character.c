@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   zeroed_character.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 09:09:43 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/15 09:10:59 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
 
-int zeroed_character(char *str, char c)
+int	zeroed_character(char *str, char c)
 {
-    while (*str)
-    {
-        if (*str != c)
-            return (0);
-        str++;
-    }
-    return (1);
+	while (*str)
+	{
+		if (*str != c)
+			return (0);
+		str++;
+	}
+	return (1);
 }

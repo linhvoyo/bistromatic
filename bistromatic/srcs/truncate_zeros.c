@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   truncate_zeros.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 09:06:41 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/15 09:07:20 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
 
-void truncate_zeros(char **str)
+void	truncate_zeros(char **str)
 {
-	int i;
-	int sign;
-
-	char *temp;
+	int		i;
+	int		sign;
+	char	*temp;
 
 	i = 0;
 	if (*str[i] == '-')
@@ -22,4 +33,3 @@ void truncate_zeros(char **str)
 		*str = ft_strdup(*str + i);
 	free(temp);
 }
-

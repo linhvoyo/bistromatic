@@ -6,13 +6,13 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 09:03:07 by lilam             #+#    #+#             */
-/*   Updated: 2018/01/15 09:03:16 by lilam            ###   ########.fr       */
+/*   Updated: 2018/01/15 09:04:53 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bistromatic.h"
 
-void swap(char **str1, char **str2)
+void	swap(char **str1, char **str2)
 {
 	char *temp;
 
