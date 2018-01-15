@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/14 23:30:06 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/14 23:32:14 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
 
-char *add(char *augend, char *addend)
+char	*add(char *augend, char *addend)
 {
-	char *num1;
-	char *num2;
-	int i;
-	int value;
+	char	*num1;
+	char	*num2;
+	int		i;
+	int		value;
 
 	num1 = ft_strdup(augend);
 	num2 = ft_strdup(addend);
@@ -14,7 +26,7 @@ char *add(char *augend, char *addend)
 	if (zeroed(num2))
 		return (num1);
 	if (is_negative(num1) && is_negative(num2))
-		return ft_strjoin("-", add(++num1, ++num2));
+		return (ft_strjoin("-", add(++num1, ++num2)));
 	if (!is_negative(num1) && is_negative(num2))
 		return (subtract(num1, ++num2));
 	num1 = pad_left(num1, ft_strlen(num1) + 1);

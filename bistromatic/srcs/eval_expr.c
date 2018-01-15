@@ -1,31 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   eval_expr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/14 22:58:23 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/15 06:54:25 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
+#define VARS char *sign="1"; char current[2]; char *val=ft_strnew(0); char *tmp;
 
-char *ft_atoi_str(const char *str)
+char	*ft_atoi_str(const char *str)
 {
-	char *sign;
-	char current[2];
-	char *val;
-	char *tmp;
-
-	sign = "1";
-	val = ft_strnew(0);
+	VARS;
 	while (DL(*str))
 		str++;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
 			sign = "-1";
-		str++;;
+		str++;
 	}
 	if (DL(*str) || (*str >= 0 && *str <= 31))
-		return ("0");;
+		return ("0");
 	while (*str)
 	{
 		if (*str >= '0' && *str <= '9')
 		{
 			current[0] = *str;
 			tmp = val;
-			val = ft_strjoin(val, current);
+			val = ft_strjoin(tmp, current);
 			free(tmp);
 			str++;
 		}
@@ -38,8 +45,8 @@ char *ft_atoi_str(const char *str)
 char	push_operator(char **expression)
 {
 	char operator;
-	operator = '\0';
 
+	operator = '\0';
 	while (**expression == ' ')
 		(*expression)++;
 	if (**expression == '%')
@@ -47,7 +54,7 @@ char	push_operator(char **expression)
 	if (**expression == '*')
 		operator = **expression;
 	if (**expression == '/')
-	   operator = **expression;
+		operator = **expression;
 	if (**expression == '+')
 		operator = **expression;
 	if (**expression == '-')
@@ -61,39 +68,34 @@ char	*traverse_parenthetical(char **expression)
 {
 	char *result;
 
-	while(**expression == ' ')
+	while (**expression == ' ')
 		(*expression)++;
 	if (**expression == '(')
 	{
 		(*expression)++;
 		result = handle_expression(expression, "1");
-//		printf("result_2: %s\n", result);
 		while (**expression == ' ')
-				(*expression)++;
+			(*expression)++;
 		(*expression)++;
 	}
 	else
 	{
 		result = ft_atoi_str(*expression);
-//		printf("result_3: %s\n", result);
 		if (**expression == '+' || **expression == '-')
 			(*expression)++;
 		while ('0' <= **expression && **expression <= '9')
 			(*expression)++;
 	}
-//	printf("result: %s\n", result);
 	return (result);
 }
-
 
 char	*handle_expression(char **expression, char *sign)
 {
 	char *operand_a;
-	char *operand_b;	
+	char *operand_b;
 	char operator;
 
 	operand_a = multiply(sign, traverse_parenthetical(expression));
-//	printf("operand_a: %s\n", operand_a);
 	operator = push_operator(expression);
 	while (operator == '%' || operator == '*' || operator == '/')
 	{
@@ -107,25 +109,16 @@ char	*handle_expression(char **expression, char *sign)
 		operator = push_operator(expression);
 	}
 	if (operator == '+')
-		return (add(operand_a,handle_expression(expression, "1")));
+		return (add(operand_a, handle_expression(expression, "1")));
 	else if (operator == '-')
-		return (add(operand_a,handle_expression(expression, "-1")));
+		return (add(operand_a, handle_expression(expression, "-1")));
 	return (operand_a);
 }
 
-char *evaluate_expr(char *exp)
+char	*evaluate_expr(char *exp)
 {
-//	puts(exp);
-//	printf("%s\n", handle_expression(&exp, "1"));
 	exp = replace(exp, "--", "+", 1);
 	exp = replace(exp, "+(", "+1*(", 1);
 	exp = replace(exp, "-(", "-1*(", 1);
-	/*
-	if (exp[0] == '-' && exp[1] == '(')
-	{
-		exp++;
-		return (handle_expression(&exp, "-1"));
-	}
-	*/
 	return (handle_expression(&exp, "1"));
 }

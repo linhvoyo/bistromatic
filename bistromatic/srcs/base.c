@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   base.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/14 23:32:46 by lilam             #+#    #+#             */
+/*   Updated: 2018/01/14 23:38:23 by lilam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "bistromatic.h"
 
 static char		*base_positive(char *charset, char *decimal)
@@ -39,5 +51,5 @@ char			*base(char *charset, char *decimal)
 		sign = "-";
 		decimal++;
 	}
-	return ft_strjoin(sign, base_positive(charset, decimal));
+	return (ft_strjoin(sign, base_positive(charset, decimal)));
 }
