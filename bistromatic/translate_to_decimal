@@ -1,0 +1,51 @@
+#include "bistromatic.h"
+
+static char	*get_chunk(char *charset, char *expression)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (get_index(charset, expression[i]) < 0)
+		i++;
+	if (!expression[i])
+		return ("");
+	j = i;
+	while (get_index(charset, expression[j]) > 0)
+		j++;
+	j--;
+	return (substring(expression, i, j));
+}
+
+char		*translate_to_decimal(char *charset, char *expression)
+{
+	char *translation;
+	char *chunk;
+	char *decimal;
+	linked_list *new;
+	int i;
+	int j;
+
+	i = 0;
+	new = create_link("");
+	while (i < ft_strlen(expression))
+	{
+		chunk = get_chunk(charset, &expression[i]);
+		decimal = get_decimal(charset, chunk);
+		j = ft_strlen(chunk) - 1;
+		while (j-- > 0)
+			i++;
+		while (get_index(charset, expression[i]) < 0)
+		{
+			if (!expression[i])
+				break ;
+			add_link(&new, stringerize(expression[i]));
+			i++;
+		}
+		if (ft_strlen(decimal) > 0)
+			add_link(&new, decimal);
+		print_linked_list(new);
+		i++;
+	}
+	return ("AAAAAAAAAAA");
+}

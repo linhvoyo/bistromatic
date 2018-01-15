@@ -329,7 +329,7 @@ void	unit_test()
 	correct_result = "15";
 	printf("Translation of expression \"%s\" using charset (\"%s\", base %lu) to base 10 = %s, result should be: %s\n", expression, charset, ft_strlen(charset), translate_to_decimal(charset, expression), correct_result);
 	charset = "0123456789";
-	expression = "966+666";
+	expression = "966+266";
 	printf("Translating base 10 to base 10: %s = %s\n", expression, translate_to_decimal(charset, expression));
 	charset = "0123456789";
 	expression = "1+1";
