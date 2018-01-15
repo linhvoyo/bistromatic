@@ -49,4 +49,7 @@ char *traverse_parenthical(char **expression);
 char *handle_expression(char **expression, char *sign);
 char *evaluate_expr(char *exp);
 char *ft_atoi_str(const char *str);
+
+void unit_test();
+int validate(char *exp,char *base, char *size);
 #endif
