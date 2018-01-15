@@ -4,7 +4,8 @@
 
 int main(int argc, char **argv)
 {
-	//unit_test();
+	unit_test();
+	/*
 	char buf[BUFF_SIZE + 1];
 	int ret;
 	char *exp;
@@ -32,12 +33,11 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		puts(exp);
-		printf("%s\n", translate_to_decimal(argv[1], exp));
-		printf("%s\n", evaluate_expr(translate_to_decimal(argv[1], exp)));
+//		puts(exp);
 		ft_putstr(base(argv[1], evaluate_expr(translate_to_decimal(argv[1], exp))));
 	}
 //	close(0);
 	ft_putchar('\n');
 	return (0);
+	*/
 }
