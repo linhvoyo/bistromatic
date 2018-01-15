@@ -1,5 +1,5 @@
 #include "bistromatic.h"
-#include <stdio.h>
+
 #define BUFF_SIZE 2
 
 int main(int argc, char **argv)

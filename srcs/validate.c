@@ -1,5 +1,4 @@
 #include "bistromatic.h"
-#include <stdio.h>
 
 int does_exist(char *str, char c)
 {
