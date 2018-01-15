@@ -6,7 +6,7 @@
 /*   By: hiroshiusui <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 09:30:49 by hiroshius         #+#    #+#             */
-/*   Updated: 2018/01/15 09:37:12 by hiroshius        ###   ########.fr       */
+/*   Updated: 2018/01/15 09:38:21 by hiroshius        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct				s_linked_list
 {
 	char					*data;
 	struct s_linked_list	*next;
-}							linked_list;
+}							t_linked_list;
 
 char						*add(char *s1, char *s2);
 char						*base(char *charset, char *decimal);
