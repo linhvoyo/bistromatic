@@ -316,13 +316,12 @@ void	unit_test()
 	replacer = "1+*(";
 	printf("Replacing \"%s\" with \"%s\": %s = %s, result should be: %s\n", replaced, replacer, expression, replace(expression, replaced, replacer, 1), correct_result);
 	printf("*****************EXPRESSION TRANSLATION TO BASE 10**************\n");
-	charset = "~^@\\!;i &[]";
-	expression = "-(@-(;*\\!@))";
-				//-(2-(5*342)) in base 11 system;
-				//~^@\!;i &[]
-				//143A
+	charset = "~^@!;i &[]";
+	expression = "-(@-(;*!@))";
+				//-(2-(4*32)) in base 10 system;
+				//~^@!;i &[]
 	correct_result = "-(2-(5*409))";
 	printf("Translation of expression \"%s\" using charset (%s) to base 10 = %s, result should be: %s\n", expression, charset, translate_to_decimal(charset, expression), correct_result);
 	printf("%s\n", base(charset, evaluate_expr(translate_to_decimal(charset, expression))));
-
+	usleep(100000);
 }
