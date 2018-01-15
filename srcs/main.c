@@ -2,8 +2,6 @@
 #include <stdio.h>
 #define BUFF_SIZE 2
 
-//int validate(char *exp,char *base, char *size);
-
 int main(int argc, char **argv)
 {
 	//unit_test();
@@ -38,6 +36,6 @@ int main(int argc, char **argv)
 		ft_putstr(base(argv[1], evaluate_expr(translate_to_decimal(argv[1], exp))));
 	}
 	close(0);
-	ft_putchar('\n');
+//	ft_putchar('\n');
 	return (0);
 }
